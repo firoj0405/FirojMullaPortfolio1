@@ -1,186 +1,213 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Firoj Mulla — Full-Stack Operations Specialist</title>
-<meta name="description" content="Portfolio of Firoj Mulla — Full-Stack Operations Specialist. Expertise: E-commerce Management, MIS, Software Testing, SEO and Data Analysis." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="assets/profile.jpg" />
-<!-- Font Awesome for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firoj Mulla | Full-Stack Operations Specialist</title>
+    <meta name="description" content="Firoj Mulla's professional portfolio: Full-Stack Operations Specialist with expertise in E-commerce, MIS, and Software Testing/QA.">
+    <meta name="keywords" content="Firoj Mulla, Full-Stack Operations, E-commerce Manager, MIS Executive, Software Tester, QA, SEO, Digital Marketing">
+    <meta name="author" content="Firoj Mulla">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="main-header" id="mainHeader">
-  <div class="left-social">
-    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="https://twitter.com/firojmulla" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-  </div>
-  <div class="brand">
-    <h1>Firoj <span>Mulla</span></h1>
-  </div>
-  <nav class="nav-right">
-    <a href="#about">About</a>
-    <a href="#expertise">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
 
-<main class="container">
-  <aside class="sidebar">
-    <div class="profile-wrap">
-      <img src="assets/profile.jpg" alt="Firoj Mulla profile" class="profile-img" id="profileImg">
-      <h2>Firoj Mulla</h2>
-      <p class="role">Full-Stack Operations Specialist</p>
-      <a class="cv-btn" href="assets/Half.jpeg" download>Download CV</a>
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
     </div>
-    <div class="contact-card">
-      <h3>Contact</h3>
-      <p><strong>Name:</strong> Firoj Mulla</p>
-      <p><strong>Email:</strong> <a href="mailto:firoj@example.com">firoj@example.com</a></p>
-      <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-      <p><strong>Website:</strong> <a href="#">firojmulla.com</a></p>
-      <div class="socials-small">
-        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/firojmulla" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </aside>
 
-  <section class="main-content">
-    <section id="about" class="hero">
-      <div class="hero-text">
-        <h2>Full-Stack Operations Specialist</h2>
-        <p class="subtitle"><strong>Highlights:</strong> Worked as E-commerce Manager, Software Tester, MIS Executive across IT and B2B Industry.</p>
-      </div>
-    </section>
+    <header id="main-header">
+        <div class="header-container">
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <nav>
+                <a href="#about-section">About</a>
+                <a href="#skills-section">Skills</a>
+                <a href="#projects-section">Projects & Highlights</a>
+                <a href="#contact-section">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-    <section id="expertise" class="expertise">
-      <h3>Expertise</h3>
-      <div class="expert-grid">
-        <div class="col">
-          <h4>Ecommerce Manager</h4>
-          <div class="badges">
-            <span>Product Listing</span><span>Digital Marketing</span><span>Meta Ads</span><span>Google Ads</span>
-            <span>SEO</span><span>Data Analysis</span><span>Customer Service</span><span>UX/UI Optimization</span>
-            <span>Project Management</span><span>Google Analytics</span><span>Email Marketing</span><span>Shopify / WooCommerce</span><span>Flipkart / Amazon</span>
-          </div>
-        </div>
-        <div class="col">
-          <h4>MIS Executive</h4>
-          <div class="badges">
-            <span>B2B & IT Campaign Execution</span><span>Advanced Excel File Building</span><span>Client Spec Campaign Files</span>
-            <span>VBA Automation</span><span>Data Management & Analysis</span><span>MS Excel Proficiency</span><span>Report Generation</span>
-            <span>Project Management</span><span>Analytical Problem Solving</span><span>Business Intelligence Tools</span>
-          </div>
-        </div>
-        <div class="col">
-          <h4>Software Testing / QA</h4>
-          <div class="badges">
-            <span>UAT</span><span>SDLC / STLC</span><span>Smoke</span><span>Sanity</span><span>Regression</span><span>Retesting</span>
-            <span>Test Case Design</span><span>Bug Lifecycle</span><span>Exploratory Testing</span><span>JIRA</span><span>JMeter</span><span>MySQL</span><span>Advanced Excel</span><span>AI</span><span>Agile-Scrum</span><span>Patch Deployment</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <main>
+        <section id="about-section" class="top-section">
+            <div class="profile-card">
+                <div class="profile-image-container">
+                    <img src="placeholder-profile.jpg" alt="Firoj Mulla Profile" class="profile-image">
+                </div>
+                <div class="profile-content">
+                    <h1>Firoj Mulla</h1>
+                    <h2>Full-Stack Operations Specialist</h2>
+                    <p class="subtitle">
+                        **Highlights Designation with Bold**: worked as **E-commerce Manager**, **Software Tester**, **MIS Executive** across IT and B2B Industry.
+                    </p>
+                    <a href="Half.jpeg" download class="btn-primary">Download CV</a>
+                </div>
+            </div>
+        </section>
 
-    <section class="tools" id="tools">
-      <h3>Tools</h3>
-      <div class="tools-grid">
-        <div>
-          <h4>Ecommerce Tools</h4>
-          <div class="icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/shopify/shopify-original.svg" alt="Shopify" loading="lazy">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Search Console" loading="lazy">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlegoogle/google-original.svg" alt="Google Ads" loading="lazy">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Meta" loading="lazy">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ahrefs/ahrefs-original.svg" alt="Ahrefs" loading="lazy">
-          </div>
-        </div>
-        <div>
-          <h4>MIS Tools</h4>
-          <div class="icons">
-            <span class="tool-pill">Advanced Excel</span>
-            <span class="tool-pill">Outlook</span>
-            <span class="tool-pill">VBA / Macro</span>
-          </div>
-        </div>
-        <div>
-          <h4>Software Testing Tools</h4>
-          <div class="icons">
-            <span class="tool-pill">JIRA</span>
-            <span class="tool-pill">JMeter</span>
-            <span class="tool-pill">MySQL</span>
-            <span class="tool-pill">Postman</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <section id="skills-section" class="expertise-section section-padding">
+            <h2><i class="fas fa-brain"></i> Core Expertise & Skills</h2>
+            <div class="expertise-grid">
+                <div class="expertise-column">
+                    <h3><i class="fas fa-shopping-cart"></i> E-commerce Manager</h3>
+                    <div class="badge-container">
+                        <span class="skill-badge">Product Listing</span>
+                        <span class="skill-badge">Digital Marketing</span>
+                        <span class="skill-badge">Meta Ads (ROI-based)</span>
+                        <span class="skill-badge">Google Ads (ROAS)</span>
+                        <span class="skill-badge">SEO</span>
+                        <span class="skill-badge">Data Analysis</span>
+                        <span class="skill-badge">Customer Service</span>
+                        <span class="skill-badge">UX/UI Optimization</span>
+                        <span class="skill-badge">Project Management</span>
+                        <span class="skill-badge">Google Analytics</span>
+                        <span class="skill-badge">Email Marketing</span>
+                        <span class="skill-badge">Shopify / WooCommerce</span>
+                        <span class="skill-badge">Flipkart / Amazon</span>
+                    </div>
+                </div>
 
-    <section id="projects" class="projects">
-      <h3>Projects</h3>
-      <div class="project-main">
-        <h4>Main Project — Internal Audit Management System (IAMS)</h4>
-        <p>Built on MetricStream platform for complete audit lifecycle: planning, execution, reporting, issue tracking & closure.</p>
-        <a href="#" class="view-workflow" data-img="assets/IAMS-workflow.png">View Project Workflow</a>
-        <img src="assets/IAMS-workflow.png" alt="IAMS Workflow preview" class="workflow-preview" loading="lazy">
-      </div>
+                <div class="expertise-column">
+                    <h3><i class="fas fa-chart-line"></i> MIS Executive</h3>
+                    <div class="badge-container">
+                        <span class="skill-badge">B2B & IT Campaign Execution</span>
+                        <span class="skill-badge">Advanced Excel File Building</span>
+                        <span class="skill-badge">Client Specification Based Files</span>
+                        <span class="skill-badge">VBA Automation</span>
+                        <span class="skill-badge">Data Management & Analysis</span>
+                        <span class="skill-badge">MS Excel Proficiency</span>
+                        <span class="skill-badge">Report Generation</span>
+                        <span class="skill-badge">Project Management</span>
+                        <span class="skill-badge">Analytical Problem Solving</span>
+                        <span class="skill-badge">Business Intelligence Tools</span>
+                    </div>
+                </div>
 
-      <div class="seo-gallery">
-        <h4>SEO Projects</h4>
-        <div class="grid-4">
-          <img src="assets/Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="SEO 1" class="gallery-img" loading="lazy">
-          <img src="assets/Location wise Views Screenshot 2025-10-24 231732.png" alt="SEO 2" class="gallery-img" loading="lazy">
-          <img src="assets/Operating System Wise Views Screenshot 2025-10-24 231516.png" alt="SEO 3" class="gallery-img" loading="lazy">
-          <img src="assets/Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="SEO 4" class="gallery-img" loading="lazy">
-        </div>
-      </div>
+                <div class="expertise-column">
+                    <h3><i class="fas fa-bug"></i> Software Testing / QA</h3>
+                    <div class="badge-container">
+                        <span class="skill-badge">UAT</span>
+                        <span class="skill-badge">SDLC / STLC</span>
+                        <span class="skill-badge">Smoke Testing</span>
+                        <span class="skill-badge">Sanity Testing</span>
+                        <span class="skill-badge">Regression Testing</span>
+                        <span class="skill-badge">Retesting</span>
+                        <span class="skill-badge">Test Case Design</span>
+                        <span class="skill-badge">Bug Lifecycle</span>
+                        <span class="skill-badge">Exploratory Testing</span>
+                        <span class="skill-badge">JIRA</span>
+                        <span class="skill-badge">JMeter</span>
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">Advanced Excel</span>
+                        <span class="skill-badge">AI</span>
+                        <span class="skill-badge">Agile-Scrum</span>
+                        <span class="skill-badge">Patch Deployment</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="certificates">
-        <h4>Certifications</h4>
-        <div class="grid-3">
-          <img src="assets/Certificate1.png" alt="Certificate 1" class="cert-img" loading="lazy">
-          <img src="assets/Certificate2.png" alt="Certificate 2" class="cert-img" loading="lazy">
-          <img src="assets/Certificate3.png" alt="Certificate 3" class="cert-img" loading="lazy">
-        </div>
-      </div>
+        <section class="tools-section section-padding">
+            <h2><i class="fas fa-tools"></i> Key Tools Proficiency</h2>
+            <div class="tools-grid">
+                <div class="tools-column">
+                    <h3>E-commerce Tools</h3>
+                    <div class="tool-icon-list">
+                        <div class="tool-item"><i class="fas fa-store"></i> <span>Shopify</span></div>
+                        <div class="tool-item"><i class="fas fa-search"></i> <span>Google Search Console</span></div>
+                        <div class="tool-item"><i class="fab fa-google"></i> <span>Google Ads</span></div>
+                        <div class="fab fa-meta" role="img" aria-label="Meta"></div> <span>Meta Ads</span>
+                        <div class="tool-item"><i class="fas fa-chart-area"></i> <span>Ahrefs</span></div>
+                        <div class="tool-item"><i class="fas fa-frog"></i> <span>Screaming Frog</span></div>
+                        <div class="tool-item"><i class="fas fa-handshake"></i> <span>HubSpot</span></div>
+                        <div class="tool-item"><i class="fas fa-chart-bar"></i> <span>Google Analytics</span></div>
+                    </div>
+                </div>
 
-      <div class="awards">
-        <h4>Awards</h4>
-        <div class="grid-1">
-          <img src="assets/Award1.png" alt="Award 1" class="award-img" loading="lazy">
-        </div>
-      </div>
-    </section>
+                <div class="tools-column">
+                    <h3>MIS Tools</h3>
+                    <div class="tool-icon-list">
+                        <div class="tool-item"><i class="fas fa-file-excel"></i> <span>Advanced Excel</span></div>
+                        <div class="tool-item"><i class="fas fa-envelope"></i> <span>Outlook</span></div>
+                        <div class="tool-item"><i class="fas fa-microchip"></i> <span>VBA / Macro</span></div>
+                    </div>
+                </div>
 
-    <footer id="contact" class="footer">
-      <h3>Contact</h3>
-      <p><strong>Name:</strong> Firoj Mulla</p>
-      <p><strong>Email:</strong> <a href="mailto:firoj@example.com">firoj@example.com</a></p>
-      <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-      <p><strong>Website:</strong> <a href="#">firojmulla.com</a></p>
-      <div class="socials">
-        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://twitter.com/firojmulla" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-      </div>
-      <p class="copyright">© 2025 Firoj Mulla — All rights reserved.</p>
+                <div class="tools-column">
+                    <h3>Software Testing Tools</h3>
+                    <div class="tool-icon-list">
+                        <div class="tool-item"><i class="fas fa-tasks"></i> <span>JIRA</span></div>
+                        <div class="tool-item"><i class="fas fa-tachometer-alt"></i> <span>JMeter</span></div>
+                        <div class="tool-item"><i class="fas fa-database"></i> <span>MySQL</span></div>
+                        <div class="tool-item"><i class="fas fa-file-excel"></i> <span>Advanced Excel</span></div>
+                        <div class="tool-item"><i class="fas fa-paper-plane"></i> <span>Postman</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-section" class="projects-section section-padding">
+            <h2><i class="fas fa-project-diagram"></i> Key Projects & Achievements</h2>
+
+            <div class="main-project-card">
+                <h3>1) Main Project – Internal Audit Management System (IAMS)</h3>
+                <p>Internal Audit Management System (IAMS) — built on **MetricStream platform** for complete audit lifecycle: planning, execution, reporting, issue tracking & closure. Enhances governance, compliance & risk assessment efficiency.</p>
+                <a href="placeholder-workflow.png" class="btn-primary view-project-workflow">View Project Workflow</a>
+            </div>
+
+            <div class="seo-projects">
+                <h3>2) SEO Projects Section: Performance Highlights</h3>
+                <div class="image-gallery four-grid">
+                    <img src="Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="SEO Views Screenshot" class="gallery-image">
+                    <img src="Location wise Views Screenshot 2025-10-24 231732.png" alt="SEO Location Views" class="gallery-image">
+                    <img src="Operating System Wise Views Screenshot 2025-10-24 231516.png" alt="SEO OS Views" class="gallery-image">
+                    <img src="Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="SEO Views Screenshot" class="gallery-image">
+                </div>
+            </div>
+
+            <div class="certification-section">
+                <h3><i class="fas fa-award"></i> Certifications</h3>
+                <div class="image-gallery three-grid">
+                    <img src="Certificate1.png" alt="Certification 1" class="gallery-image">
+                    <img src="Certificate2.png" alt="Certification 2" class="gallery-image">
+                    <img src="Certificate3.png" alt="Certification 3" class="gallery-image">
+                </div>
+            </div>
+
+            <div class="awards-section">
+                <h3><i class="fas fa-trophy"></i> Awards</h3>
+                <div class="image-gallery one-grid">
+                    <img src="placeholder-award.png" alt="Award Image" class="gallery-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-section" class="contact-section section-padding">
+            <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
+            <div class="contact-card">
+                <p><strong>Name:</strong> Firoj Mulla</p>
+                <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+91xxxxxxxxxx">+91 xxxxxxxxxx</a></p>
+                <p><strong>Website:</strong> <a href="#">Your Website Link</a></p>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Firoj Mulla. Developed with passion by an Experienced Full Stack Engineer.</p>
     </footer>
-  </section>
-</main>
 
-<!-- Image modal -->
-<div id="imgModal" class="img-modal" aria-hidden="true">
-  <span class="close-modal" id="closeModal">&times;</span>
-  <img class="modal-content" id="modalImage" alt="Expanded project image">
-  <div id="caption"></div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
