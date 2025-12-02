@@ -23,6 +23,29 @@
     --border-radius: 8px;
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    /* --- ADDED BRAND COLORS FOR ICONS --- */
+    /* Social Media Colors */
+    --color-linkedin: #0A66C2;
+    --color-youtube: #FF0000;
+    --color-twitter: #1DA1F2;
+    --color-facebook: #1877F2;
+
+    /* Tool Colors */
+    --color-shopify: #96BF48;
+    --color-search-console: #4285F4; /* Google Blue */
+    --color-google-ads: #4285F4; 
+    --color-ahrefs: #ff6938; 
+    --color-screaming-frog: #F98D20;
+    --color-hubspot: #FF7A59;
+    --color-analytics: #E37400;
+    --color-excel: #217346;
+    --color-outlook: #0078D4;
+    --color-jira: #0052CC;
+    --color-mysql: #00758F;
+    --color-postman: #FF6C37;
+    --color-database: #34495e; /* Database fallback/darker color */
+    /* ------------------------------------- */
 }
 
 /* Reset and Base Styles */
@@ -124,6 +147,7 @@ a:hover {
     align-items: center;
 }
 
+/* CHANGE 1: Social Icons - Original Colors */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
@@ -132,9 +156,15 @@ a:hover {
 }
 
 .social-icons a:hover {
-    color: var(--color-primary);
+    /* Hover effect maintains original color or slightly darker shade */
     transform: translateY(-2px);
 }
+
+.social-icons .fa-linkedin { color: var(--color-linkedin); }
+.social-icons .fa-youtube { color: var(--color-youtube); }
+.social-icons .fa-twitter { color: var(--color-twitter); }
+.social-icons .fa-facebook-f { color: var(--color-facebook); }
+
 
 .nav-links {
     list-style: none;
@@ -326,10 +356,34 @@ a:hover {
     border-bottom: 1px dashed #e9ecef;
 }
 
+/* CHANGE 2: Tools List Icons - Original Colors */
 .tool-category li i {
-    color: var(--color-primary);
+    color: var(--color-primary); /* Default/Fallback */
     width: 25px;
+    transition: color 0.3s ease;
 }
+
+/* Ecommerce Tools */
+.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify - using wrench icon */
+.tool-category li .fa-search { color: var(--color-search-console); } /* Search Console */
+.tool-category li .fa-bullhorn { color: var(--color-google-ads); } /* Google Ads */
+.tool-category li .fa-facebook-f { color: var(--color-facebook); } /* Meta Ads */
+.tool-category li .fa-chart-line { color: var(--color-ahrefs); } /* Ahrefs */
+.tool-category li .fa-frog { color: var(--color-screaming-frog); } /* Screaming Frog */
+.tool-category li .fa-rocket { color: var(--color-hubspot); } /* HubSpot */
+.tool-category li .fa-chart-bar { color: var(--color-analytics); } /* Google Analytics */
+
+/* MIS Tools */
+.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA - using superscript icon for formula reference */
+.tool-category li .fa-envelope { color: var(--color-outlook); } /* Outlook */
+.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro - using Excel color */
+
+/* Software Testing Tools */
+.tool-category li .fa-jira { color: var(--color-jira); }
+.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter - keeping primary blue as no specific standard FA color */
+.tool-category li .fa-server { color: var(--color-mysql); } /* MySQL */
+.tool-category li .fa-paper-plane { color: var(--color-postman); } /* Postman */
+
 
 /* --- PROJECTS SECTION --- */
 .project-card {
