@@ -3,53 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <title>Firoj Mulla — Full-Stack Operations Specialist</title>
-  <meta name="description" content="Portfolio of Firoj Mulla — Full-Stack Operations Specialist: Ecommerce Manager, MIS Executive, Software Tester/QA." />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Firoj Mulla — Full-Stack Operations Specialist. Ecommerce Manager, MIS Executive, Software Tester. Portfolio showcasing projects, tools, certifications and contact." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="canonical" href="https://example.com/" />
-  <!-- Font Awesome CDN for small icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
-  <!-- Google Fonts: add below in your production (comment included) -->
-  <!-- Add this in production: <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"> -->
+  <!-- Open Graph / Social -->
   <meta property="og:title" content="Firoj Mulla — Full-Stack Operations Specialist" />
-  <meta property="og:description" content="Ecommerce Manager, MIS Executive & Software Tester — portfolio and projects." />
+  <meta property="og:description" content="Ecommerce Manager, MIS Executive, Software Tester. Portfolio showcasing projects, tools, certifications and contact." />
   <meta property="og:image" content="assets/profile.jpg" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:type" content="website" />
+
+  <!-- Font Awesome (icons only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JSON-LD Person schema -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Firoj Mulla",
-    "jobTitle":"Full-Stack Operations Specialist",
-    "url":"https://example.com",
-    "sameAs":["https://linkedin.com/","https://twitter.com/","https://youtube.com/"]
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Firoj Mulla",
+    "email": "firoj@example.com",
+    "jobTitle": "Full-Stack Operations Specialist",
+    "url": "https://example.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/yourprofile",
+      "https://twitter.com/yourprofile",
+      "https://www.youtube.com/@yourchannel"
+    ]
   }
   </script>
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Comment: Add Google Analytics / GTM snippet here if needed -->
+
 </head>
 <body>
   <!-- Fixed header -->
-  <header id="site-header" class="header" role="banner">
+  <header id="site-header" class="site-header" role="banner" aria-label="Main header">
     <div class="header-inner">
       <div class="left">
-        <!-- Profile frame: replace assets/profile.jpg -->
-        <a href="#top" class="profile-link" aria-label="Home - Firoj Mulla">
-          <img src="assets/profile.jpg" alt="Profile picture of Firoj Mulla" class="profile-img" loading="lazy" />
-        </a>
-        <div class="social-small" aria-hidden="false">
-          <a href="#" aria-label="LinkedIn" class="icon-link"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="YouTube" class="icon-link"><i class="fab fa-youtube"></i></a>
-          <a href="#" aria-label="Twitter" class="icon-link"><i class="fab fa-twitter"></i></a>
+        <!-- Replace assets/profile.jpg with your profile image -->
+        <div class="profile-frame" aria-hidden="false">
+          <img src="assets/profile.jpg" alt="Profile photo of Firoj Mulla (replace assets/profile.jpg)" class="profile-img" loading="lazy">
+        </div>
+        <div class="socials header-socials" aria-hidden="false">
+          <!-- Update hrefs -->
+          <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
 
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <ul class="nav-list">
           <li><a href="#about">About</a></li>
           <li><a href="#expertise">Skills & Key Highlights</a></li>
           <li><a href="#tools">Tools</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#awards">Awards</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -57,204 +69,261 @@
     </div>
   </header>
 
-  <main id="top">
-    <!-- Top hero -->
+  <main id="main" tabindex="-1">
+    <!-- Hero / Top Section -->
     <section id="hero" class="hero" aria-labelledby="hero-heading">
       <div class="hero-inner">
-        <div class="hero-text">
-          <h1 id="hero-heading">Full-Stack Operations Specialist</h1>
-          <p class="subtitle"><strong>worked as E-commerce Manager, Software Tester, MIS Executive across IT and B2B Industry.</strong></p>
-          <p class="hero-cta">
-            <!-- Replace assets/half.jpeg with CV file -->
-            <a class="btn-primary" href="assets/half.jpeg" download aria-label="Download CV">Download CV</a>
-          </p>
+        <h1 id="hero-heading" class="hero-title">Full-Stack Operations Specialist</h1>
+        <p class="hero-subtitle"><strong>worked as E-commerce Manager, Software Tester, MIS Executive across IT and B2B Industry.</strong></p>
+        <div class="hero-ctas">
+          <!-- Replace assets/half.jpeg with CV file -->
+          <a class="btn primary" href="assets/half.jpeg" download="Firoj_Mulla_CV.jpg" aria-label="Download CV">Download CV</a>
+          <a class="btn ghost" href="#contact">Contact</a>
         </div>
-        <div class="hero-image" aria-hidden="true">
-          <!-- decorative half image; replace as needed -->
-          <img src="assets/half.jpeg" alt="Decorative sample" loading="lazy" />
-        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <!-- Decorative/replaceable hero image -->
+        <img src="assets/half.jpeg" alt="Hero sample image (replace assets/half.jpeg)" loading="lazy">
       </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="panel about" aria-labelledby="about-title">
-      <h2 id="about-title">About Me</h2>
-      <p class="lead">Experienced Full-Stack Operations Specialist with cross-functional experience in Ecommerce, MIS & QA — building ROI-focused campaigns, audit-ready systems, and data-driven reporting that helps teams scale.</p>
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About</h2>
+        <p>I'm <strong>Firoj Mulla</strong>, a Full-Stack Operations Specialist with experience managing e-commerce ecosystems, building MIS dashboards, and ensuring software quality across web and B2B platforms. I combine product thinking with data-driven operations to deliver measurable results.</p>
+      </div>
     </section>
 
-    <!-- Expertise Badges -->
-    <section id="expertise" class="panel expertise" aria-labelledby="expertise-title">
-      <h2 id="expertise-title">Expertise</h2>
-      <div class="expert-grid">
-        <article class="expert-col" aria-labelledby="col1-title">
-          <h3 id="col1-title">Ecommerce Manager</h3>
-          <div class="badges">
-            <span class="badge">Product Listing</span>
-            <span class="badge">Digital Marketing</span>
-            <span class="badge">Meta Ads (Campaign Creation → ROI)</span>
-            <span class="badge">Google Ads (ROAS)</span>
-            <span class="badge">SEO</span>
-            <span class="badge">Data Analysis</span>
-            <span class="badge">Customer Service</span>
-            <span class="badge">UX/UI Optimization</span>
-            <span class="badge">Project Management</span>
-            <span class="badge">Google Analytics</span>
-            <span class="badge">Email Marketing</span>
-            <span class="badge">Shopify / WooCommerce</span>
-            <span class="badge">Flipkart / Amazon</span>
-          </div>
-        </article>
+    <!-- Expertise / Skills -->
+    <section id="expertise" class="section expertise" aria-labelledby="expertise-heading">
+      <div class="container">
+        <h2 id="expertise-heading">Skills & Key Highlights</h2>
+        <div class="grid expertise-grid" role="list">
+          <!-- Column 1 -->
+          <article class="card" role="listitem" aria-labelledby="e1">
+            <h3 id="e1">Ecommerce Manager</h3>
+            <div class="badges">
+              <span class="badge">Product Listing</span>
+              <span class="badge">Digital Marketing</span>
+              <span class="badge">Meta Ads (Campaign Creation → ROI based execution)</span>
+              <span class="badge">Google Ads (Approval → Campaign Run → ROAS)</span>
+              <span class="badge">SEO</span>
+              <span class="badge">Data Analysis</span>
+              <span class="badge">Customer Service</span>
+              <span class="badge">UX/UI Optimization</span>
+              <span class="badge">Project Management</span>
+              <span class="badge">Google Analytics</span>
+              <span class="badge">Email Marketing</span>
+              <span class="badge">Shopify / WooCommerce</span>
+              <span class="badge">Flipkart / Amazon</span>
+            </div>
+          </article>
 
-        <article class="expert-col" aria-labelledby="col2-title">
-          <h3 id="col2-title">MIS Executive</h3>
-          <div class="badges">
-            <span class="badge">B2B & IT Campaign Execution</span>
-            <span class="badge">Advanced Excel File Building</span>
-            <span class="badge">Client Spec Based Campaign Files</span>
-            <span class="badge">VBA Automation</span>
-            <span class="badge">Data Management & Analysis</span>
-            <span class="badge">MS Excel Proficiency</span>
-            <span class="badge">Report Generation</span>
-            <span class="badge">Project Management</span>
-            <span class="badge">Analytical Problem Solving</span>
-            <span class="badge">Business Intelligence Tools</span>
-          </div>
-        </article>
+          <!-- Column 2 -->
+          <article class="card" role="listitem" aria-labelledby="e2">
+            <h3 id="e2">MIS Executive</h3>
+            <div class="badges">
+              <span class="badge">B2B & IT Campaign Execution</span>
+              <span class="badge">Advanced Excel File Building</span>
+              <span class="badge">Client Specification Based Campaign Files</span>
+              <span class="badge">VBA Automation</span>
+              <span class="badge">Data Management & Analysis</span>
+              <span class="badge">MS Excel Proficiency</span>
+              <span class="badge">Report Generation</span>
+              <span class="badge">Project Management</span>
+              <span class="badge">Analytical Problem Solving</span>
+              <span class="badge">Business Intelligence Tools</span>
+            </div>
+          </article>
 
-        <article class="expert-col" aria-labelledby="col3-title">
-          <h3 id="col3-title">Software Testing / QA</h3>
-          <div class="badges">
-            <span class="badge">UAT</span>
-            <span class="badge">SDLC / STLC</span>
-            <span class="badge">Smoke, Sanity, Regression</span>
-            <span class="badge">Retesting</span>
-            <span class="badge">Test Case Design</span>
-            <span class="badge">Bug Lifecycle</span>
-            <span class="badge">Exploratory Testing</span>
-            <span class="badge">JIRA</span>
-            <span class="badge">JMeter</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">Advanced Excel</span>
-            <span class="badge">AI</span>
-            <span class="badge">Agile-Scrum</span>
-            <span class="badge">Patch Deployment</span>
-          </div>
-        </article>
+          <!-- Column 3 -->
+          <article class="card" role="listitem" aria-labelledby="e3">
+            <h3 id="e3">Software Testing / QA</h3>
+            <div class="badges">
+              <span class="badge">UAT</span>
+              <span class="badge">SDLC / STLC</span>
+              <span class="badge">Smoke</span>
+              <span class="badge">Sanity</span>
+              <span class="badge">Regression</span>
+              <span class="badge">Retesting</span>
+              <span class="badge">Test Case Design</span>
+              <span class="badge">Bug Lifecycle</span>
+              <span class="badge">Exploratory Testing</span>
+              <span class="badge">JIRA</span>
+              <span class="badge">JMeter</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">Advanced Excel</span>
+              <span class="badge">AI</span>
+              <span class="badge">Agile-Scrum</span>
+              <span class="badge">Patch Deployment</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- Tools -->
-    <section id="tools" class="panel tools" aria-labelledby="tools-title">
-      <h2 id="tools-title">Tools</h2>
-      <div class="tools-grid">
-        <div class="tools-col">
-          <h4>Ecommerce Tools</h4>
-          <ul>
-            <li><i class="fab fa-shopify" aria-hidden="true"></i> Shopify</li>
-            <li><i class="fas fa-search" aria-hidden="true"></i> Google Search Console</li>
-            <li><i class="fab fa-google" aria-hidden="true"></i> Google Ads</li>
-            <li><i class="fab fa-facebook" aria-hidden="true"></i> Meta</li>
-            <li><i class="fas fa-chart-line" aria-hidden="true"></i> Ahrefs</li>
-            <li><i class="fas fa-bug" aria-hidden="true"></i> Screaming Frog</li>
-            <li><i class="fas fa-inbox" aria-hidden="true"></i> HubSpot</li>
-            <li><i class="fas fa-chart-pie" aria-hidden="true"></i> Google Analytics</li>
-          </ul>
-        </div>
-        <div class="tools-col">
-          <h4>MIS Tools</h4>
-          <ul>
-            <li><i class="fas fa-table" aria-hidden="true"></i> Advanced Excel</li>
-            <li><i class="fas fa-envelope" aria-hidden="true"></i> Outlook</li>
-            <li><i class="fas fa-code" aria-hidden="true"></i> VBA / Macro</li>
-          </ul>
-        </div>
-        <div class="tools-col">
-          <h4>Software Testing Tools</h4>
-          <ul>
-            <li><i class="fab fa-jira" aria-hidden="true"></i> JIRA</li>
-            <li><i class="fas fa-tachometer-alt" aria-hidden="true"></i> JMeter</li>
-            <li><i class="fas fa-database" aria-hidden="true"></i> MySQL</li>
-            <li><i class="fas fa-table" aria-hidden="true"></i> Advanced Excel</li>
-            <li><i class="fas fa-paper-plane" aria-hidden="true"></i> Postman</li>
-          </ul>
+    <section id="tools" class="section tools" aria-labelledby="tools-heading">
+      <div class="container">
+        <h2 id="tools-heading">Tools</h2>
+        <div class="grid tools-grid" role="list">
+          <div class="tools-column" role="listitem">
+            <h3>Ecommerce Tools</h3>
+            <ul class="tool-list">
+              <li><i class="fab fa-shopify" aria-hidden="true"></i> Shopify</li>
+              <li><i class="fas fa-search" aria-hidden="true"></i> Google Search Console</li>
+              <li><i class="fas fa-bullhorn" aria-hidden="true"></i> Google Ads</li>
+              <li><i class="fab fa-facebook" aria-hidden="true"></i> Meta</li>
+              <li><i class="fas fa-chart-line" aria-hidden="true"></i> Ahrefs</li>
+              <li><i class="fas fa-spider" aria-hidden="true"></i> Screaming Frog</li>
+              <li><i class="fas fa-inbox" aria-hidden="true"></i> HubSpot</li>
+              <li><i class="fas fa-chart-pie" aria-hidden="true"></i> Google Analytics</li>
+            </ul>
+          </div>
+
+          <div class="tools-column" role="listitem">
+            <h3>MIS Tools</h3>
+            <ul class="tool-list">
+              <li><i class="fas fa-file-excel" aria-hidden="true"></i> Advanced Excel</li>
+              <li><i class="fas fa-envelope" aria-hidden="true"></i> Outlook</li>
+              <li><i class="fas fa-code" aria-hidden="true"></i> VBA / Macro</li>
+            </ul>
+          </div>
+
+          <div class="tools-column" role="listitem">
+            <h3>Software Testing Tools</h3>
+            <ul class="tool-list">
+              <li><i class="fab fa-jira" aria-hidden="true"></i> JIRA</li>
+              <li><i class="fas fa-tachometer-alt" aria-hidden="true"></i> JMeter</li>
+              <li><i class="fas fa-database" aria-hidden="true"></i> MySQL</li>
+              <li><i class="fas fa-file-excel" aria-hidden="true"></i> Advanced Excel</li>
+              <li><i class="fas fa-paper-plane" aria-hidden="true"></i> Postman</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="panel projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Projects</h2>
+    <section id="projects" class="section projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading">Projects</h2>
 
-      <div class="project-main">
-        <figure>
-          <img src="assets/project1.png" alt="IAMS workflow screenshot" class="proj-img" loading="lazy" />
-          <figcaption>
+        <!-- Main Project -->
+        <div class="main-project card">
+          <div class="project-media">
+            <!-- Replace with assets/project_main.png -->
+            <img src="assets/project_main.png" alt="Internal Audit Management System (replace assets/project_main.png)" loading="lazy">
+          </div>
+          <div class="project-content">
             <h3>Internal Audit Management System (IAMS)</h3>
             <p>Built on MetricStream platform for complete audit lifecycle: planning, execution, reporting, issue tracking & closure. Enhances governance, compliance & risk assessment efficiency.</p>
-            <p><a href="#" class="btn-secondary" data-lightbox="assets/project1.png" id="view-workflow">View Project Workflow</a></p>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="seo-gallery">
-        <h4>SEO Projects</h4>
-        <div class="grid-4">
-          <button class="thumb" data-lightbox="assets/project1.png" aria-label="Open Project image 1"><img src="assets/project1.png" alt="SEO project sample 1" loading="lazy" /></button>
-          <button class="thumb" data-lightbox="assets/project1.png" aria-label="Open Project image 2"><img src="assets/project1.png" alt="SEO project sample 2" loading="lazy" /></button>
-          <button class="thumb" data-lightbox="assets/project1.png" aria-label="Open Project image 3" loading="lazy"><img src="assets/project1.png" alt="SEO project sample 3" /></button>
-          <button class="thumb" data-lightbox="assets/project1.png" aria-label="Open Project image 4"><img src="assets/project1.png" alt="SEO project sample 4" loading="lazy" /></button>
+            <button class="btn" id="view-workflow" data-src="assets/project_workflow.png">View Project Workflow</button>
+          </div>
         </div>
+
+        <!-- SEO Projects Gallery -->
+        <div class="gallery-grid">
+          <h3>SEO Projects</h3>
+          <div class="grid seo-grid" role="list">
+            <figure class="gallery-item" role="listitem">
+              <img src="assets/Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="Mazamh24 Views Screenshot 1 (replace file in assets/)" loading="lazy">
+              <figcaption>Mazamh24 Views Screenshot 2025-10-24 230711.png</figcaption>
+            </figure>
+
+            <figure class="gallery-item" role="listitem">
+              <img src="assets/Location wise Views Screenshot 2025-10-24 231732.png" alt="Location wise Views Screenshot (replace file in assets/)" loading="lazy">
+              <figcaption>Location wise Views Screenshot 2025-10-24 231732.png</figcaption>
+            </figure>
+
+            <figure class="gallery-item" role="listitem">
+              <img src="assets/Operating System Wise Views Screenshot 2025-10-24 231516.png" alt="Operating System Wise Views Screenshot (replace file in assets/)" loading="lazy">
+              <figcaption>Operating System Wise Views Screenshot 2025-10-24 231516.png</figcaption>
+            </figure>
+
+            <figure class="gallery-item" role="listitem">
+              <img src="assets/Mazamh24 Views Screenshot 2025-10-24 230711.png" alt="Mazamh24 Views Screenshot duplicate (replace file in assets/)" loading="lazy">
+              <figcaption>Mazamh24 Views Screenshot 2025-10-24 230711.png</figcaption>
+            </figure>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- Certifications & Awards -->
-    <section id="certs" class="panel certs" aria-labelledby="certs-title">
-      <h2 id="certs-title">Certifications</h2>
-      <div class="grid-3 cert-grid">
-        <button class="cert-thumb" data-lightbox="assets/cert1.png" aria-label="Open certification 1"><img src="assets/cert1.png" alt="Certification 1" loading="lazy" /></button>
-        <button class="cert-thumb" data-lightbox="assets/cert1.png" aria-label="Open certification 2"><img src="assets/cert1.png" alt="Certification 2" loading="lazy" /></button>
-        <button class="cert-thumb" data-lightbox="assets/cert1.png" aria-label="Open certification 3"><img src="assets/cert1.png" alt="Certification 3" loading="lazy" /></button>
+    <section id="certifications" class="section certifications" aria-labelledby="certifications-heading">
+      <div class="container">
+        <h2 id="certifications-heading">Certifications</h2>
+        <div class="grid cert-grid" role="list">
+          <figure class="cert-item" role="listitem">
+            <img src="assets/Certificate1.png" alt="Certificate 1 (replace assets/Certificate1.png)" loading="lazy">
+            <figcaption>Certificate1.png</figcaption>
+          </figure>
+          <figure class="cert-item" role="listitem">
+            <img src="assets/Certificate2.png" alt="Certificate 2 (replace assets/Certificate2.png)" loading="lazy">
+            <figcaption>Certificate2.png</figcaption>
+          </figure>
+          <figure class="cert-item" role="listitem">
+            <img src="assets/Certificate3.png" alt="Certificate 3 (replace assets/Certificate3.png)" loading="lazy">
+            <figcaption>Certificate3.png</figcaption>
+          </figure>
+        </div>
       </div>
+    </section>
 
-      <h2 id="awards-title">Awards</h2>
-      <div class="awards-grid">
-        <button class="award-thumb" data-lightbox="assets/cert1.png" aria-label="Open award image"><img src="assets/cert1.png" alt="Award image" loading="lazy" /></button>
+    <section id="awards" class="section awards" aria-labelledby="awards-heading">
+      <div class="container">
+        <h2 id="awards-heading">Awards</h2>
+        <div class="grid awards-grid">
+          <figure class="award-item">
+            <img src="assets/Award.png" alt="Award image (replace assets/Award.png)" loading="lazy">
+            <figcaption>Award</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="panel contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="contact-card" role="region" aria-label="Contact card for Firoj Mulla">
-        <h3>Firoj Mulla</h3>
-        <p>Email: <a href="mailto:firoj@example.com">firoj@example.com</a></p>
-        <p>Phone: <a href="tel:+91-XXXXXXXXXX">+91-XXXXXXXXXX</a></p>
-        <p>Website: <a href="https://example.com">https://example.com</a></p>
-        <p class="social-row" aria-hidden="false">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        </p>
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="container contact-card">
+        <h2 id="contact-heading">Contact</h2>
+        <div class="contact-details">
+          <p><strong>Name:</strong> Firoj Mulla</p>
+          <p><strong>Email:</strong> <a href="mailto:firoj@example.com">firoj@example.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+91-XXXXXXXXXX">+91-XXXXXXXXXX</a></p>
+          <p><strong>Website:</strong> <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a></p>
+
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com" aria-label="YouTube" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Lightbox modal -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-hidden="true" aria-label="Image modal">
-    <button class="lightbox-close" aria-label="Close (Esc)">✕</button>
-    <button class="lightbox-prev" aria-label="Previous image">◀</button>
-    <div class="lightbox-content" tabindex="0"></div>
-    <button class="lightbox-next" aria-label="Next image">▶</button>
+  <!-- Lightbox / Modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox-close" aria-label="Close (Esc)">×</button>
+    <button class="lightbox-prev" aria-label="Previous image" title="Previous (←)"><i class="fas fa-chevron-left"></i></button>
+    <div class="lightbox-content" role="document">
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-next" aria-label="Next image" title="Next (→)"><i class="fas fa-chevron-right"></i></button>
   </div>
 
   <footer class="site-footer" role="contentinfo">
-    <p>© <span id="year"></span> Firoj Mulla — Built with care.</p>
+    <div class="container">
+      <p>© <span id="yr"></span> Firoj Mulla — Full-Stack Operations Specialist</p>
+    </div>
   </footer>
 
-  <!-- Comment: Add GA / GTM snippet below in production where indicated -->
-  <!-- Google Analytics placeholder: add your GTM/GA snippet here -->
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
