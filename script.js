@@ -1,95 +1,127 @@
-// script.js - minimal, accessible lightbox + smooth scroll
-// Comment: keep JS lightweight and dependency-free.
+document.addEventListener('DOMContentLoaded', () => {
+    // ------------------------------------------
+    // 1. Smooth Scrolling for Navigation
+    // ------------------------------------------
+    document.querySelectorAll('.nav-links a, .menu-toggle, .cta-button').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Check if it's an internal link
+            if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Smooth scroll for nav links (native behavior fallback)
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var href = anchor.getAttribute('href');
-      if (!href || href === '#') return;
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        var el = document.querySelector(href);
-        if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
-        history.replaceState(null, '', href);
-      }
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    const navbar = document.getElementById('navbar');
+                    if (navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                        document.querySelector('.menu-toggle i').classList.remove('fa-times');
+                        document.querySelector('.menu-toggle i').classList.add('fa-bars');
+                        document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+                    }
+                }
+            }
+        });
     });
-  });
 
-  // Lightbox functionality
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.querySelector('.lightbox-close');
-  const nextBtn = document.querySelector('.lightbox-next');
-  const prevBtn = document.querySelector('.lightbox-prev');
+    // ------------------------------------------
+    // 2. Fixed Header/Scroll Effect
+    // ------------------------------------------
+    const header = document.getElementById('header');
 
-  // Collect gallery images and workflow button
-  const galleryItems = Array.from(document.querySelectorAll('.gallery-item img, .cert-item img, .award-item img, .project-media img'));
-  // Add workflow button target
-  const workflowBtn = document.getElementById('view-workflow');
-
-  let currentIndex = -1;
-  function openLightbox(src, alt, idx) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
-    lightboxCaption.textContent = alt || '';
-    lightbox.setAttribute('aria-hidden', 'false');
-    lightbox.style.display = 'flex';
-    currentIndex = (typeof idx === 'number') ? idx : -1;
-    // trap focus minimally
-    closeBtn.focus();
-  }
-
-  function closeLightbox() {
-    lightbox.setAttribute('aria-hidden', 'true');
-    lightbox.style.display = 'none';
-    lightboxImg.src = '';
-    currentIndex = -1;
-  }
-
-  // Click on gallery images
-  galleryItems.forEach((img, i) => {
-    img.setAttribute('tabindex', '0');
-    img.addEventListener('click', () => openLightbox(img.src, img.alt, i));
-    img.addEventListener('keyup', (e) => { if (e.key === 'Enter') openLightbox(img.src, img.alt, i); });
-  });
-
-  // Workflow button opens specific image
-  if (workflowBtn) {
-    workflowBtn.addEventListener('click', () => {
-      const src = workflowBtn.getAttribute('data-src') || 'assets/project_workflow.png';
-      openLightbox(src, 'Project workflow — Internal Audit Management System');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
-  }
 
-  // Navigation in lightbox
-  function showIndex(i) {
-    if (i < 0) i = galleryItems.length - 1;
-    if (i >= galleryItems.length) i = 0;
-    const img = galleryItems[i];
-    openLightbox(img.src, img.alt, i);
-  }
-  nextBtn.addEventListener('click', () => { if (currentIndex >= 0) showIndex(currentIndex + 1); });
-  prevBtn.addEventListener('click', () => { if (currentIndex >= 0) showIndex(currentIndex - 1); });
-  closeBtn.addEventListener('click', closeLightbox);
+    // ------------------------------------------
+    // 3. Mobile Menu Toggle
+    // ------------------------------------------
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.getElementById('navbar');
+    const menuIcon = menuToggle.querySelector('i');
 
-  // Close on backdrop click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
+    menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+        
+        navbar.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
+        
+        if (navbar.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times'); // Use 'X' icon for close
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    });
+    
+    // ------------------------------------------
+    // 4. Lightbox/Modal Functionality
+    // ------------------------------------------
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.querySelector('.close-btn');
+    const modalTriggers = document.querySelectorAll('.open-modal, .seo-image-card img, .certification-card img');
+    
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            let imageUrl = '';
+            let altText = 'Full-size project or certification image';
+            
+            // Determine image source:
+            if (trigger.tagName === 'A' && trigger.classList.contains('open-modal')) {
+                // Main project link (download project)
+                imageUrl = trigger.getAttribute('href');
+                altText = trigger.getAttribute('aria-label') || altText;
+            } else if (trigger.tagName === 'IMG') {
+                // SEO image or Certification image
+                imageUrl = trigger.getAttribute('src');
+                altText = trigger.getAttribute('alt') || altText;
+            }
 
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.getAttribute('aria-hidden') === 'false') {
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextBtn.click();
-      if (e.key === 'ArrowLeft') prevBtn.click();
+            if (imageUrl) {
+                lightbox.style.display = 'block';
+                lightbox.setAttribute('aria-hidden', 'false');
+                lightboxImage.setAttribute('src', imageUrl);
+                lightboxImage.setAttribute('alt', altText);
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        });
+    });
+
+    // Close the lightbox when the close button is clicked
+    closeBtn.addEventListener('click', () => {
+        closeLightbox();
+    });
+
+    // Close the lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Close the lightbox when the ESC key is pressed
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+            closeLightbox();
+        }
+    });
+    
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto'; // Restore background scrolling
+        lightboxImage.setAttribute('src', ''); // Clear image source
     }
-  });
-
-  // Update year in footer
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Small accessibility: focus visible outlines (already in CSS)
 });
