@@ -12,6 +12,7 @@
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJd/rB072OS+F+wJ7gO7YF/o4eJ9m1j4aJ5O8m7x6L6mG/u/U" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -33,7 +34,7 @@
 <body>
 
     <div id="lightbox-modal" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-        <button class="lightbox-close" aria-label="Close Modal">X</button>
+        <button class="lightbox-close" aria-label="Close Modal">&times;</button>
         <div class="lightbox-content">
             <img src="" alt="Full size image" class="lightbox-image">
         </div>
@@ -41,14 +42,17 @@
 
     <header id="main-header" class="fixed-header">
         <div class="header-left">
+            <div class="profile-frame">
+                <img src="assets/profile.jpg" alt="Firoj Mulla Profile Picture" class="profile-img">
+            </div>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/firojmulla/" target="_blank" aria-label="LinkedIn Profile">IN</a>
-                <a href="https://www.youtube.com/@firojmulla" target="_blank" aria-label="YouTube Channel">YT</a>
-                <a href="https://twitter.com/firojmulla" target="_blank" aria-label="Twitter Profile">TW</a>
+                <a href="https://www.linkedin.com/in/firojmulla/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@firojmulla" target="_blank" aria-label="YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/firojmulla" target="_blank" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
         <nav class="header-right" aria-label="Main Navigation">
-            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links"><i class="fas fa-bars"></i></button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills-highlights">Skills & Key Highlights</a></li>
@@ -63,16 +67,12 @@
     <main>
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <div class="profile-frame">
-                    <img src="assets/profile.jpg" alt="Firoj Mulla Profile Picture" class="profile-img">
-                </div>
-                
                 <h1 class="hero-heading">Full-Stack Operations Specialist</h1>
                 <p class="hero-subtitle">
                     **worked as E-commerce Manager, Software Tester, MIS Executive across IT and B2B Industry.**
                 </p>
                 <a href="assets/half.jpeg" download="Firoj_Mulla_CV.pdf" class="cta-button">
-                    Download CV <span>&#x2193;</span>
+                    Download CV <i class="fas fa-download"></i>
                 </a>
             </div>
         </section>
@@ -152,34 +152,34 @@
                 <div class="tool-list" tabindex="0" role="group" aria-labelledby="tool-ecommerce">
                     <h3 id="tool-ecommerce" class="column-title">Ecommerce Tools</h3>
                     <ul>
-                        <li><img src="assets/tool_shopify.png" alt="Shopify Logo" loading="lazy" class="tool-icon"> Shopify</li>
-                        <li><img src="assets/tool_gsc.png" alt="Google Search Console Logo" loading="lazy" class="tool-icon"> Google Search Console</li>
-                        <li><img src="assets/tool_gads.png" alt="Google Ads Logo" loading="lazy" class="tool-icon"> Google Ads</li>
-                        <li><img src="assets/tool_meta.png" alt="Meta Logo" loading="lazy" class="tool-icon"> Meta</li>
-                        <li><img src="assets/tool_ahrefs.png" alt="Ahrefs Logo" loading="lazy" class="tool-icon"> Ahrefs</li>
-                        <li><img src="assets/tool_screamingfrog.png" alt="Screaming Frog Logo" loading="lazy" class="tool-icon"> Screaming Frog</li>
-                        <li><img src="assets/tool_hubspot.png" alt="HubSpot Logo" loading="lazy" class="tool-icon"> HubSpot</li>
-                        <li><img src="assets/tool_ga.png" alt="Google Analytics Logo" loading="lazy" class="tool-icon"> Google Analytics</li>
+                        <li><i class="fas fa-shopping-cart"></i> Shopify</li>
+                        <li><i class="fas fa-search"></i> Google Search Console</li>
+                        <li><i class="fab fa-google"></i> Google Ads</li>
+                        <li><i class="fab fa-facebook-f"></i> Meta (Facebook/Instagram Ads)</li>
+                        <li><i class="fas fa-chart-line"></i> Ahrefs</li>
+                        <li><i class="fas fa-frog"></i> Screaming Frog</li>
+                        <li><i class="fas fa-headset"></i> HubSpot</li>
+                        <li><i class="fas fa-chart-area"></i> Google Analytics</li>
                     </ul>
                 </div>
 
                 <div class="tool-list" tabindex="0" role="group" aria-labelledby="tool-mis">
                     <h3 id="tool-mis" class="column-title">MIS Tools</h3>
                     <ul>
-                        <li><img src="assets/tool_excel.png" alt="Excel Logo" loading="lazy" class="tool-icon"> Advanced Excel</li>
-                        <li><img src="assets/tool_outlook.png" alt="Outlook Logo" loading="lazy" class="tool-icon"> Outlook</li>
-                        <li><img src="assets/tool_vba.png" alt="VBA Logo" loading="lazy" class="tool-icon"> VBA / Macro</li>
+                        <li><i class="fas fa-file-excel"></i> Advanced Excel</li>
+                        <li><i class="fas fa-envelope"></i> Outlook</li>
+                        <li><i class="fas fa-robot"></i> VBA / Macro</li>
                     </ul>
                 </div>
 
                 <div class="tool-list" tabindex="0" role="group" aria-labelledby="tool-testing">
                     <h3 id="tool-testing" class="column-title">Software Testing Tools</h3>
                     <ul>
-                        <li><img src="assets/tool_jira.png" alt="JIRA Logo" loading="lazy" class="tool-icon"> JIRA</li>
-                        <li><img src="assets/tool_jmeter.png" alt="JMeter Logo" loading="lazy" class="tool-icon"> JMeter</li>
-                        <li><img src="assets/tool_mysql.png" alt="MySQL Logo" loading="lazy" class="tool-icon"> MySQL</li>
-                        <li><img src="assets/tool_excel.png" alt="Excel Logo" loading="lazy" class="tool-icon"> Advanced Excel</li>
-                        <li><img src="assets/tool_postman.png" alt="Postman Logo" loading="lazy" class="tool-icon"> Postman (API Testing)</li>
+                        <li><i class="fas fa-ticket-alt"></i> JIRA</li>
+                        <li><i class="fas fa-tachometer-alt"></i> JMeter</li>
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-file-excel"></i> Advanced Excel</li>
+                        <li><i class="fas fa-exchange-alt"></i> Postman (API Testing)</li>
                     </ul>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                         Internal Audit Management System (IAMS) — built on **MetricStream** platform for complete audit lifecycle: planning, execution, reporting, issue tracking & closure. Enhances governance, compliance & risk assessment efficiency.
                     </p>
                     <a href="#" class="cta-button open-lightbox" data-src="assets/workflow.jpg" data-alt="Internal Audit Management System Workflow Diagram">
-                        View Project Workflow <span>&#x2192;</span>
+                        View Project Workflow <i class="fas fa-link"></i>
                     </a>
                 </div>
                 <div class="project-image-wrapper">
@@ -211,7 +211,7 @@
                 </figure>
 
                 <figure class="gallery-item">
-                    <img src="Location wise Views Screenshot 2025-10-24 231732.png" alt="SEO Performance: Location wise Views Screenshot" loading="lazy" class="open-lightbox" data-src="assets/Location wise Views Screenshot 2025-10-24 231732.png" data-alt="Location wise Views Screenshot">
+                    <img src="assets/Location wise Views Screenshot 2025-10-24 231732.png" alt="SEO Performance: Location wise Views Screenshot" loading="lazy" class="open-lightbox" data-src="assets/Location wise Views Screenshot 2025-10-24 231732.png" data-alt="Location wise Views Screenshot">
                     <figcaption>Location Wise Views</figcaption>
                 </figure>
 
@@ -260,18 +260,18 @@
             <div class="contact-card">
                 <p class="contact-name">Firoj Mulla</p>
                 <div class="contact-info-item">
-                    <span>✉️</span>
+                    <i class="fas fa-envelope"></i>
                     <a href="mailto:firoj@example.com">firoj@example.com</a> </div>
                 <div class="contact-info-item">
-                    <span>📞</span>
+                    <i class="fas fa-phone"></i>
                     <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a> </div>
                 <div class="contact-info-item">
-                    <span>🌐</span>
+                    <i class="fas fa-globe"></i>
                     <a href="https://example.com" target="_blank">https://example.com</a> </div>
                 <div class="social-contact-icons">
-                    <a href="https://www.linkedin.com/in/firojmulla/" target="_blank" aria-label="LinkedIn">IN</a>
-                    <a href="https://twitter.com/firojmulla" target="_blank" aria-label="Twitter">TW</a>
-                    <a href="https://www.youtube.com/@firojmulla" target="_blank" aria-label="YouTube">YT</a>
+                    <a href="https://www.linkedin.com/in/firojmulla/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/firojmulla" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@firojmulla" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </section>
