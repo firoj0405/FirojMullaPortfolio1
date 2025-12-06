@@ -165,6 +165,8 @@ a:hover {
 .social-icons .fa-youtube { color: var(--color-youtube); }
 .social-icons .fa-twitter { color: var(--color-twitter); }
 .social-icons .fa-facebook-f { color: var(--color-facebook); }
+.whatsapp-icon i {color: var(--color-whatsapp);}
+
 
 
 .nav-links {
