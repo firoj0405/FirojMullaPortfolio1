@@ -11,7 +11,7 @@
     --color-text: #333; /* Dark text */
     --color-heading: #1a1a1a; /* Very dark headings */
     --color-background: #ffffff; /* White page background */
-    --color-dark-bg: #0f172a; /* Dark background for fixed header on scroll */
+    --color-dark-bg:   #1e1e1e;/* Dark background for fixed header on scroll */
 
     /* Typography */
     --font-family-main: 'Montserrat', sans-serif; /* Replace 'Montserrat' if using a different font */
