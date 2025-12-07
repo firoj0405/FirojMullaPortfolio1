@@ -31,8 +31,6 @@
     --spacing-lg: 3rem; /* बड़ा स्पेसिंग */
     --spacing-md: 1.5rem; /* मध्यम स्पेसिंग */
     --border-radius: 8px; /* सामान्य गोल कोना (Border Radius) */
-    
-    /* Shadows - छाया प्रभाव */
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); /* हल्का छाया */
     --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15); /* गहरा छाया */
 
@@ -110,7 +108,7 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
-/* सेक्शन के शीर्षक के लिए स्टाइल और नीचे की सजावटी रेखा */
+/* सेक्शन के शीर्षक के लिए स्टाइल और नीचे की सजावटी रेखा के लिए तैयारी */
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -183,7 +181,7 @@ a:hover {
     padding: 10px 0;
 }
 
-/* स्क्रॉल होने पर हेडर की स्टाइल (पारदर्शी पृष्ठभूमि, छाया, और ब्लर इफ़ेक्ट) सेट करता है */
+/* स्क्रॉल होने पर हेडर की स्टाइल (पारभासी पृष्ठभूमि, छाया, और ब्लर इफ़ेक्ट) सेट करता है */
 #header.scrolled {
     background-color: rgba(255, 255, 255, 0.95); /* पारभासी पृष्ठभूमि */
     box-shadow: var(--shadow-subtle);
@@ -197,11 +195,11 @@ a:hover {
     align-items: center;
 }
 
-/* सोशल मीडिया आइकनों के लिए सामान्य स्टाइल */
+/* सोशल मीडिया आइकनों के लिए सामान्य स्टाइल (CHANGE 1) */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
-    color: var(--color-heading);
+    color: var(--color-heading); /* डिफ़ॉल्ट रूप से हेडिंग रंग */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -216,7 +214,8 @@ a:hover {
 .social-icons .fa-youtube { color: var(--color-youtube); }
 .social-icons .fa-twitter { color: var(--color-twitter); }
 .social-icons .fa-facebook-f { color: var(--color-facebook); }
-.social-icons .fa-whatsapp {color: var(--color-whatsapp);
+/* व्हाट्सएप आइकन का रंग (सीधा RGB मान) */
+.social-icons .fa-whatsapp {color: rgb(37, 211, 102);
 }
 
 /* नेविगेशन लिंक लिस्ट को फ्लेक्स लेआउट में व्यवस्थित करता है */
@@ -451,7 +450,7 @@ a:hover {
     border-bottom: 1px dashed #e9ecef;
 }
 
-/* टूल लिस्ट आइकन का डिफ़ॉल्ट/फ़ॉलबैक रंग और साइज़ */
+/* टूल लिस्ट आइकन का डिफ़ॉल्ट/फ़ॉलबैक रंग और साइज़ (CHANGE 2) */
 .tool-category li i {
     color: var(--color-primary); /* Default/Fallback */
     width: 25px;
@@ -459,8 +458,8 @@ a:hover {
 }
 
 /* विभिन्न टूल आइकनों को ब्रांड रंग असाइन करता है */
-/* Ecommerce Tools */
-.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify */
+/* Ecommerce Tools - ईकॉमर्स उपकरण */
+.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify - (wrench icon का उपयोग) */
 .tool-category li .fa-search { color: var(--color-search-console); } /* Search Console */
 .tool-category li .fa-bullhorn { color: var(--color-google-ads); } /* Google Ads */
 .tool-category li .fa-facebook-f { color: var(--color-facebook); } /* Meta Ads */
@@ -469,14 +468,14 @@ a:hover {
 .tool-category li .fa-rocket { color: var(--color-hubspot); } /* HubSpot */
 .tool-category li .fa-chart-bar { color: var(--color-analytics); } /* Google Analytics */
 
-/* MIS Tools */
-.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA */
+/* MIS Tools - एमआईएस उपकरण */
+.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA - (फ़ॉर्मूला संदर्भ के लिए superscript आइकन का उपयोग) */
 .tool-category li .fa-envelope { color: var(--color-outlook); } /* Outlook */
-.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro */
+.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro - (एक्सेल रंग का उपयोग) */
 
-/* Software Testing Tools */
+/* Software Testing Tools - सॉफ्टवेयर टेस्टिंग उपकरण */
 .tool-category li .fa-jira { color: var(--color-jira); }
-.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter */
+.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter - (कोई विशिष्ट FA रंग नहीं होने के कारण प्राथमिक नीला रखा गया है) */
 .tool-category li .fa-server { color: var(--color-mysql); } /* MySQL */
 .tool-category li .fa-paper-plane { color: var(--color-postman); } /* Postman */
 
@@ -586,7 +585,7 @@ a:hover {
 .seo-image-card img, .certification-card img {
     width: 100%;
     height: auto;
-    max-height: 400px; /* स्थिर ऊंचाई */
+    max-height: 400px; /* स्थिर ऊंचाई सौंदर्य के लिए */
     object-fit: cover;
     border-radius: var(--border-radius);
     display: block;
