@@ -23,10 +23,13 @@
     --color-background: #ffffff; /* पृष्ठ की सफ़ेद पृष्ठभूमि */
     --color-dark-bg:   #1e1e1e; /* स्क्रॉल पर फिक्स्ड हेडर (Fixed Header) के लिए गहरा बैकग्राउंड */
 
-    /* Typography - टाइपोग्राफी */
+    /* Typography - टाइपोग्राफी (छवि के अनुसार अद्यतन किया गया) */
     --font-family-main: 'Montserrat', sans-serif; /* मुख्य फ़ॉन्ट परिवार */
     --font-size-base: 1.1rem; /* आधार फ़ॉन्ट साइज़ */
-
+    --font-weight-regular: 400; /* सामान्य टेक्स्ट के लिए */
+    --font-weight-medium: 500; /* उपशीर्षकों के लिए */
+    --font-weight-semibold: 600; /* नेविगेशन लिंक के लिए */
+    --font-weight-bold: 700; /* मुख्य हेडिंग के लिए */
     /* Spacing & Borders - स्पेसिंग और बॉर्डर */
     --spacing-lg: 3rem; /* बड़ा स्पेसिंग */
     --spacing-md: 1.5rem; /* मध्यम स्पेसिंग */
@@ -100,10 +103,10 @@ h1, h2, h3 {
     line-height: 1.2;
 }
 
-/* बड़े हेडिंग के लिए स्टाइल, जो व्यूपोर्ट के अनुसार साइज़ को एडजस्ट करता है */
+/* बड़े हेडिंग ('Firoj Mulla' नाम) के लिए स्टाइल, जो व्यूपोर्ट के अनुसार साइज़ को एडजस्ट करता है */
 .heading-large {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-md);
     text-transform: uppercase;
 }
@@ -111,7 +114,7 @@ h1, h2, h3 {
 /* सेक्शन के शीर्षक के लिए स्टाइल और नीचे की सजावटी रेखा के लिए तैयारी */
 .section-title {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-lg);
     text-align: center;
     position: relative;
@@ -195,7 +198,7 @@ a:hover {
     align-items: center;
 }
 
-/* सोशल मीडिया आइकनों के लिए सामान्य स्टाइल (CHANGE 1) */
+/* सोशल मीडिया आइकनों के लिए सामान्य स्टाइल */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
@@ -232,7 +235,7 @@ a:hover {
 /* नेविगेशन लिंक का टेक्स्ट स्टाइल और रेखा के लिए तैयारी */
 .nav-links a {
     color: var(--color-heading);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold); /* Semibold फ़ॉन्ट-वेट */
     padding: 5px 0;
     position: relative;
     transition: color 0.3s ease;
@@ -309,16 +312,16 @@ a:hover {
     text-align: left;
 }
 
-/* उपशीर्षक (Subtitle) का स्टाइल */
+/* उपशीर्षक (Subtitle) का स्टाइल - छवि में यह हेडिंग की तरह बोल्ड है */
 .subtitle {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     margin-bottom: var(--spacing-lg);
-    font-weight: 300;
+    font-weight: var(--font-weight-medium); /* medium weight */
 }
 
 /* उपशीर्षक में बोल्ड टेक्स्ट का स्टाइल */
 .subtitle strong {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     color: var(--color-primary);
 }
 
@@ -328,7 +331,7 @@ a:hover {
     padding: 12px 30px;
     background-color: var(--color-primary);
     color: white;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     border-radius: 50px;
     box-shadow: var(--shadow-subtle);
     transition: all 0.3s ease;
@@ -396,7 +399,7 @@ a:hover {
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     border: 1px solid #dee2e6;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -450,7 +453,7 @@ a:hover {
     border-bottom: 1px dashed #e9ecef;
 }
 
-/* टूल लिस्ट आइकन का डिफ़ॉल्ट/फ़ॉलबैक रंग और साइज़ (CHANGE 2) */
+/* टूल लिस्ट आइकन का डिफ़ॉल्ट/फ़ॉलबैक रंग और साइज़ */
 .tool-category li i {
     color: var(--color-primary); /* Default/Fallback */
     width: 25px;
