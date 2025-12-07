@@ -1,31 +1,43 @@
 /*
-    Google Fonts Import Placeholder:
-    Uncomment and replace with your chosen Google Font, e.g.:
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+    ---------------------------------------------
+    📝 Google Fonts Import Placeholder - गूगल फ़ॉन्ट्स इंपोर्ट
+    ---------------------------------------------
 */
 
+/* यदि आप किसी Google Font का उपयोग कर रहे हैं, तो इसे अनकमेंट करें और अपने चुने हुए फ़ॉन्ट से बदलें */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+/*
+    ---------------------------------------------
+    🎨 Root Variables - मूल चर (रंग, टाइपोग्राफी, स्पेसिंग)
+    ---------------------------------------------
+*/
+
+/* मुख्य थीम रंग, टाइपोग्राफी, स्पेसिंग और छाया के लिए चर परिभाषित करता है */
 :root {
-    /* Colors */
-    --color-primary: #007bff; /* Blue for highlights */
-    --color-secondary: #f8f9fa; /* Light background for alt sections */
-    --color-text: #333; /* Dark text */
-    --color-heading: #1a1a1a; /* Very dark headings */
-    --color-background: #ffffff; /* White page background */
-    --color-dark-bg:   #1e1e1e;/* Dark background for fixed header on scroll */
+    /* Colors - रंग */
+    --color-primary: #007bff; /* हाइलाइट्स (Highlights) के लिए नीला */
+    --color-secondary: #f8f9fa; /* वैकल्पिक सेक्शन (alt sections) के लिए हल्का बैकग्राउंड */
+    --color-text: #333; /* गहरा टेक्स्ट */
+    --color-heading: #1a1a1a; /* हेडिंग्स के लिए बहुत गहरा */
+    --color-background: #ffffff; /* पृष्ठ की सफ़ेद पृष्ठभूमि */
+    --color-dark-bg:   #1e1e1e; /* स्क्रॉल पर फिक्स्ड हेडर (Fixed Header) के लिए गहरा बैकग्राउंड */
 
-    /* Typography */
-    --font-family-main: 'Montserrat', sans-serif; /* Replace 'Montserrat' if using a different font */
-    --font-size-base: 1.1rem;
+    /* Typography - टाइपोग्राफी */
+    --font-family-main: 'Montserrat', sans-serif; /* मुख्य फ़ॉन्ट परिवार */
+    --font-size-base: 1.1rem; /* आधार फ़ॉन्ट साइज़ */
 
-    /* Spacing & Borders */
-    --spacing-lg: 3rem;
-    --spacing-md: 1.5rem;
-    --border-radius: 8px;
-    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* Spacing & Borders - स्पेसिंग और बॉर्डर */
+    --spacing-lg: 3rem; /* बड़ा स्पेसिंग */
+    --spacing-md: 1.5rem; /* मध्यम स्पेसिंग */
+    --border-radius: 8px; /* सामान्य गोल कोना (Border Radius) */
+    
+    /* Shadows - छाया प्रभाव */
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08); /* हल्का छाया */
+    --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15); /* गहरा छाया */
 
-    /* --- ADDED BRAND COLORS FOR ICONS --- */
-    /* Social Media Colors */
+    /* --- ADDED BRAND COLORS FOR ICONS - आइकन के लिए ब्रांड रंग --- */
+    /* Social Media Colors - सोशल मीडिया रंग */
     --color-linkedin: #0A66C2;
     --color-youtube: #FF0000;
     --color-twitter: #1DA1F2;
@@ -33,9 +45,9 @@
     --color-whatsapp: #25D366;
 
 
-    /* Tool Colors */
+    /* Tool Colors - टूल रंग */
     --color-shopify: #96BF48;
-    --color-search-console: #4285F4; /* Google Blue */
+    --color-search-console: #4285F4; /* गूगल नीला */
     --color-google-ads: #4285F4; 
     --color-ahrefs: #ff6938; 
     --color-screaming-frog: #F98D20;
@@ -46,22 +58,30 @@
     --color-jira: #0052CC;
     --color-mysql: #00758F;
     --color-postman: #FF6C37;
-    --color-database: #34495e; /* Database fallback/darker color */
+    --color-database: #34495e; /* डेटाबेस फ़ॉलबैक/गहरा रंग */
     /* ------------------------------------- */
 }
 
-/* Reset and Base Styles */
+/*
+    ---------------------------------------------
+    🛠️ Reset and Base Styles - रीसेट और मूल शैलियाँ
+    ---------------------------------------------
+*/
+
+/* वैश्विक CSS रीसेट, सभी तत्वों पर एक सुसंगत आधार बनाने के लिए */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* यह सुनिश्चित करता है कि पैडिंग और बॉर्डर तत्व की चौड़ाई/ऊंचाई में शामिल हों */
 }
 
+/* स्मूथ स्क्रॉलिंग और आधार फ़ॉन्ट साइज़ सेट करता है */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
 
+/* बॉडी की पृष्ठभूमि, टेक्स्ट रंग, फ़ॉन्ट-परिवार और लाइन की ऊंचाई लागू करता है */
 body {
     font-family: var(--font-family-main);
     color: var(--color-text);
@@ -69,13 +89,20 @@ body {
     line-height: 1.6;
 }
 
-/* Typography */
+/*
+    ---------------------------------------------
+    🖥️ Typography Styles - टाइपोग्राफी शैलियाँ
+    ---------------------------------------------
+*/
+
+/* हेडिंग (H1, H2, H3) के लिए फ़ॉन्ट और रंग सेट करता है */
 h1, h2, h3 {
     font-family: var(--font-family-main);
     color: var(--color-heading);
     line-height: 1.2;
 }
 
+/* बड़े हेडिंग के लिए स्टाइल, जो व्यूपोर्ट के अनुसार साइज़ को एडजस्ट करता है */
 .heading-large {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
@@ -83,6 +110,7 @@ h1, h2, h3 {
     text-transform: uppercase;
 }
 
+/* सेक्शन के शीर्षक के लिए स्टाइल और नीचे की सजावटी रेखा */
 .section-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -91,6 +119,7 @@ h1, h2, h3 {
     position: relative;
 }
 
+/* सेक्शन शीर्षक के नीचे की नीली रेखा बनाता है */
 .section-title::after {
     content: '';
     display: block;
@@ -101,31 +130,48 @@ h1, h2, h3 {
     border-radius: 2px;
 }
 
+/*
+    ---------------------------------------------
+    🔗 Link Styles & General Utilities - लिंक और सामान्य उपयोगिताएँ
+    ---------------------------------------------
+*/
+
+/* सभी लिंक के लिए रंग, टेक्स्ट डेकोरेशन, और ट्रांज़िशन सेट करता है */
 a {
     color: var(--color-primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
+/* लिंक पर माउस ले जाने पर गहरा रंग सेट करता है */
 a:hover {
     color: #0056b3;
 }
 
+/* कंटेनर क्लास जो सामग्री को केंद्रित करता है और अधिकतम चौड़ाई निर्धारित करता है */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
+/* सेक्शन को ऊपर और नीचे पैडिंग देने के लिए क्लास */
 .section-padding {
     padding: var(--spacing-lg) 0;
 }
 
+/* वैकल्पिक सेक्शन के लिए हल्का पृष्ठभूमि रंग सेट करता है */
 .section-alt-bg {
     background-color: var(--color-secondary);
 }
 
-/* --- HEADER & NAVIGATION --- */
+/*
+    ---------------------------------------------
+    🔝 Header & Navigation - हेडर और नेविगेशन
+    ---------------------------------------------
+*/
+
+/* हेडर को फिक्स्ड स्थिति देता है, ट्रांज़िशन और लेयर ऑर्डर (z-index) सेट करता है */
 #header {
     position: fixed;
     top: 0;
@@ -137,19 +183,21 @@ a:hover {
     padding: 10px 0;
 }
 
+/* स्क्रॉल होने पर हेडर की स्टाइल (पारदर्शी पृष्ठभूमि, छाया, और ब्लर इफ़ेक्ट) सेट करता है */
 #header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95); /* Translucent background */
+    background-color: rgba(255, 255, 255, 0.95); /* पारभासी पृष्ठभूमि */
     box-shadow: var(--shadow-subtle);
-    backdrop-filter: blur(5px); /* Glass/Blur effect */
+    backdrop-filter: blur(5px); /* ब्लर/शीशा प्रभाव */
 }
 
+/* हेडर के अंदर सामग्री को संरेखित करने के लिए फ्लेक्स लेआउट */
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* CHANGE 1: Social Icons - Original Colors */
+/* सोशल मीडिया आइकनों के लिए सामान्य स्टाइल */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
@@ -157,32 +205,32 @@ a:hover {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* होवर प्रभाव (रंग अपरिवर्तित रहता है, लेकिन थोड़ा ऊपर उठता है) */
 .social-icons a:hover {
-    /* Hover effect maintains original color or slightly darker shade */
+    /* माउस ले जाने पर मूल रंग या थोड़ा गहरा शेड */
     transform: translateY(-2px);
 }
 
+/* प्रत्येक सोशल आइकन को उसका ब्रांड रंग असाइन करता है */
 .social-icons .fa-linkedin { color: var(--color-linkedin); }
 .social-icons .fa-youtube { color: var(--color-youtube); }
 .social-icons .fa-twitter { color: var(--color-twitter); }
 .social-icons .fa-facebook-f { color: var(--color-facebook); }
-/*.social-icons .fa-whatsapp { color: var(--color-whatsapp); }*/
-.social-icons .fa-whatsapp {color: rgb(37, 211, 102);
+.social-icons .fa-whatsapp {color: var(--color-whatsapp);
 }
 
-
-
-
-
+/* नेविगेशन लिंक लिस्ट को फ्लेक्स लेआउट में व्यवस्थित करता है */
 .nav-links {
     list-style: none;
     display: flex;
 }
 
+/* नेविगेशन लिंक के बीच स्पेसिंग */
 .nav-links li {
     margin-left: 20px;
 }
 
+/* नेविगेशन लिंक का टेक्स्ट स्टाइल और रेखा के लिए तैयारी */
 .nav-links a {
     color: var(--color-heading);
     font-weight: 600;
@@ -191,6 +239,7 @@ a:hover {
     transition: color 0.3s ease;
 }
 
+/* होवर पर दिखने वाली लिंक के नीचे की नीली रेखा (अंडरलाइन) */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -202,11 +251,13 @@ a:hover {
     transition: width 0.3s ease;
 }
 
+/* माउस ले जाने या फोकस करने पर लिंक के नीचे की रेखा को पूर्ण चौड़ाई पर फैलाता है */
 .nav-links a:hover::after,
 .nav-links a:focus::after {
     width: 100%;
 }
 
+/* मोबाइल पर मेनू टॉगल बटन (शुरुआत में छुपा हुआ) */
 .menu-toggle {
     display: none;
     background: none;
@@ -216,14 +267,21 @@ a:hover {
     cursor: pointer;
 }
 
-/* --- TOP SECTION (HERO) --- */
+/*
+    ---------------------------------------------
+    🦸 Top Section (Hero) - शीर्ष खंड (हीरो)
+    ---------------------------------------------
+*/
+
+/* हीरो सेक्शन के लिए न्यूनतम ऊंचाई और अलाइनमेंट सेट करता है */
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
-    padding-top: 100px; /* Space for fixed header */
+    padding-top: 100px; /* फिक्स्ड हेडर के लिए स्पेस */
 }
 
+/* हीरो सामग्री के लिए ग्रिड लेआउट (छवि और टेक्स्ट) */
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -231,10 +289,12 @@ a:hover {
     gap: var(--spacing-lg);
 }
 
+/* प्रोफाइल इमेज को केंद्रित करता है */
 .hero-image-container {
     text-align: center;
 }
 
+/* प्रोफाइल इमेज के साइज़, गोल आकार और छाया सेट करता है */
 .profile-img {
     width: 100%;
     max-width: 350px;
@@ -245,21 +305,25 @@ a:hover {
     border: 8px solid var(--color-secondary);
 }
 
+/* हीरो टेक्स्ट का संरेखण */
 .hero-text {
     text-align: left;
 }
 
+/* उपशीर्षक (Subtitle) का स्टाइल */
 .subtitle {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     margin-bottom: var(--spacing-lg);
     font-weight: 300;
 }
 
+/* उपशीर्षक में बोल्ड टेक्स्ट का स्टाइल */
 .subtitle strong {
     font-weight: 700;
     color: var(--color-primary);
 }
 
+/* मुख्य कॉल-टू-एक्शन (CTA) बटन का स्टाइल */
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
@@ -273,20 +337,28 @@ a:hover {
     letter-spacing: 1px;
 }
 
+/* CTA बटन पर होवर/फोकस इफ़ेक्ट */
 .cta-button:hover,
 .cta-button:focus {
     background-color: #0056b3;
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* हल्का ऊपर उठना */
     box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
 }
 
-/* --- EXPERTISE SECTION --- */
+/*
+    ---------------------------------------------
+    ⭐ Expertise Section - विशेषज्ञता खंड
+    ---------------------------------------------
+*/
+
+/* विशेषज्ञता कॉलम के लिए 3-कॉलम ग्रिड लेआउट */
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
 }
 
+/* विशेषज्ञता कॉलम का बैकग्राउंड, पैडिंग, और छाया */
 .expertise-column {
     background-color: white;
     padding: var(--spacing-md);
@@ -295,11 +367,13 @@ a:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* विशेषज्ञता कॉलम पर होवर इफ़ेक्ट */
 .expertise-column:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-premium);
 }
 
+/* कॉलम शीर्षक का स्टाइल */
 .column-title {
     font-size: 1.5rem;
     color: var(--color-primary);
@@ -308,12 +382,14 @@ a:hover {
     border-bottom: 2px solid var(--color-secondary);
 }
 
+/* कौशल बैज (Skill Badges) के लिए फ्लेक्स कंटेनर */
 .badge-container {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
 }
 
+/* एकल कौशल बैज का स्टाइल */
 .skill-badge {
     display: inline-block;
     background-color: #e9ecef;
@@ -326,19 +402,27 @@ a:hover {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* कौशल बैज पर होवर इफ़ेक्ट */
 .skill-badge:hover {
     background-color: var(--color-primary);
     color: white;
     transform: scale(1.05);
 }
 
-/* --- TOOLS SECTION --- */
+/*
+    ---------------------------------------------
+    🛠️ Tools Section - टूल्स खंड
+    ---------------------------------------------
+*/
+
+/* टूल सेक्शन के लिए 3-कॉलम ग्रिड लेआउट */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
 }
 
+/* टूल कैटेगरी कार्ड का स्टाइल */
 .tool-category {
     background-color: white;
     padding: var(--spacing-md);
@@ -346,33 +430,37 @@ a:hover {
     box-shadow: var(--shadow-subtle);
 }
 
+/* टूल कैटेगरी शीर्षक का स्टाइल */
 .tool-category h3 {
     font-size: 1.4rem;
     color: var(--color-heading);
     margin-bottom: var(--spacing-md);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid var(--color-primary); /* बाईं ओर नीली पट्टी */
     padding-left: 10px;
 }
 
+/* टूल लिस्ट का स्टाइल */
 .tool-category ul {
     list-style: none;
 }
 
+/* लिस्ट आइटम का स्टाइल और विभाजक */
 .tool-category li {
     padding: 8px 0;
     font-size: var(--font-size-base);
     border-bottom: 1px dashed #e9ecef;
 }
 
-/* CHANGE 2: Tools List Icons - Original Colors */
+/* टूल लिस्ट आइकन का डिफ़ॉल्ट/फ़ॉलबैक रंग और साइज़ */
 .tool-category li i {
     color: var(--color-primary); /* Default/Fallback */
     width: 25px;
     transition: color 0.3s ease;
 }
 
+/* विभिन्न टूल आइकनों को ब्रांड रंग असाइन करता है */
 /* Ecommerce Tools */
-.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify - using wrench icon */
+.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify */
 .tool-category li .fa-search { color: var(--color-search-console); } /* Search Console */
 .tool-category li .fa-bullhorn { color: var(--color-google-ads); } /* Google Ads */
 .tool-category li .fa-facebook-f { color: var(--color-facebook); } /* Meta Ads */
@@ -382,18 +470,24 @@ a:hover {
 .tool-category li .fa-chart-bar { color: var(--color-analytics); } /* Google Analytics */
 
 /* MIS Tools */
-.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA - using superscript icon for formula reference */
+.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA */
 .tool-category li .fa-envelope { color: var(--color-outlook); } /* Outlook */
-.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro - using Excel color */
+.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro */
 
 /* Software Testing Tools */
 .tool-category li .fa-jira { color: var(--color-jira); }
-.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter - keeping primary blue as no specific standard FA color */
+.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter */
 .tool-category li .fa-server { color: var(--color-mysql); } /* MySQL */
 .tool-category li .fa-paper-plane { color: var(--color-postman); } /* Postman */
 
 
-/* --- PROJECTS SECTION --- */
+/*
+    ---------------------------------------------
+    📂 Projects Section - प्रोजेक्ट्स खंड
+    ---------------------------------------------
+*/
+
+/* प्रोजेक्ट कार्ड का सामान्य लेआउट और स्टाइल */
 .project-card {
     display: flex;
     align-items: center;
@@ -404,6 +498,7 @@ a:hover {
     overflow: hidden;
 }
 
+/* मुख्य प्रोजेक्ट कार्ड के लिए ग्रिड लेआउट (विवरण और छवि) */
 .main-project {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -411,21 +506,25 @@ a:hover {
     padding: var(--spacing-md);
 }
 
+/* प्रोजेक्ट विवरण के लिए पैडिंग */
 .project-details {
     padding-right: var(--spacing-md);
 }
 
+/* प्रोजेक्ट शीर्षक का स्टाइल */
 .project-title {
     font-size: 1.8rem;
     color: var(--color-primary);
     margin-bottom: 10px;
 }
 
+/* प्रोजेक्ट विवरण टेक्स्ट का स्टाइल */
 .project-description {
     margin-bottom: var(--spacing-md);
     line-height: 1.7;
 }
 
+/* प्रोजेक्ट इमेज का स्टाइल (पूरी चौड़ाई, कवर फ़िट) */
 .project-image-preview img {
     width: 100%;
     height: 100%;
@@ -435,6 +534,7 @@ a:hover {
     transition: transform 0.5s ease;
 }
 
+/* प्रोजेक्ट लिंक बटन का स्टाइल */
 .project-link {
     display: inline-block;
     color: white;
@@ -444,10 +544,12 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
+/* प्रोजेक्ट लिंक पर होवर इफ़ेक्ट */
 .project-link:hover {
     background-color: var(--color-primary);
 }
 
+/* उप-अनुभाग शीर्षक का स्टाइल */
 .subsection-title {
     font-size: 2rem;
     text-align: center;
@@ -455,6 +557,7 @@ a:hover {
     margin-bottom: var(--spacing-md);
 }
 
+/* SEO/अन्य छोटे प्रोजेक्ट के लिए 2-कॉलम ग्रिड */
 .seo-projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -462,6 +565,7 @@ a:hover {
     margin-top: var(--spacing-md);
 }
 
+/* SEO इमेज और सर्टिफिकेशन कार्ड का सामान्य स्टाइल */
 .seo-image-card, .certification-card {
     text-align: center;
     background-color: white;
@@ -472,21 +576,24 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
+/* कार्ड पर होवर इफ़ेक्ट */
 .seo-image-card:hover, .certification-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-premium);
 }
 
+/* कार्ड के अंदर की इमेज का स्टाइल */
 .seo-image-card img, .certification-card img {
     width: 100%;
     height: auto;
-    max-height: 400px; /* Fixed height aesthetic */
+    max-height: 400px; /* स्थिर ऊंचाई */
     object-fit: cover;
     border-radius: var(--border-radius);
     display: block;
     margin-bottom: 10px;
 }
 
+/* इमेज के कैप्शन का स्टाइल */
 .seo-image-card figcaption, .certification-card figcaption {
     font-style: italic;
     font-size: 1rem;
@@ -494,14 +601,26 @@ a:hover {
 }
 
 
-/* --- CERTIFICATIONS & AWARDS --- */
+/*
+    ---------------------------------------------
+    🏆 Certifications & Awards - प्रमाणन और पुरस्कार
+    ---------------------------------------------
+*/
+
+/* सर्टिफिकेशन कार्ड के लिए उत्तरदायी ग्रिड लेआउट */
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 
-/* --- CONTACT SECTION --- */
+/*
+    ---------------------------------------------
+    📞 Contact Section - संपर्क खंड
+    ---------------------------------------------
+*/
+
+/* संपर्क कार्ड का स्टाइल और केंद्र संरेखण */
 .contact-card {
     max-width: 500px;
     margin: 0 auto;
@@ -512,32 +631,43 @@ a:hover {
     text-align: center;
 }
 
+/* संपर्क कार्ड शीर्षक का स्टाइल */
 .contact-card h3 {
     font-size: 2rem;
     margin-bottom: var(--spacing-md);
     color: var(--color-primary);
 }
 
+/* संपर्क लिस्ट का स्टाइल */
 .contact-card ul {
     list-style: none;
     margin-bottom: var(--spacing-md);
 }
 
+/* संपर्क लिस्ट आइटम का स्टाइल */
 .contact-card li {
     padding: 8px 0;
     font-size: 1.1rem;
 }
 
+/* संपर्क लिस्ट आइकन का स्टाइल */
 .contact-card li i {
     margin-right: 10px;
     color: var(--color-primary);
 }
 
+/* संपर्क अनुभाग में सोशल मीडिया आइकन का साइज़ */
 .contact-social a {
     font-size: 1.8rem;
 }
 
-/* --- FOOTER --- */
+/*
+    ---------------------------------------------
+    🦶 Footer - फुटर
+    ---------------------------------------------
+*/
+
+/* फुटर का पृष्ठभूमि, रंग, पैडिंग और टेक्स्ट संरेखण */
 footer {
     background-color: var(--color-dark-bg);
     color: white;
@@ -546,29 +676,37 @@ footer {
     font-size: 0.9rem;
 }
 
-/* --- LIGHTBOX/MODAL --- */
+/*
+    ---------------------------------------------
+    🖼️ Lightbox/Modal - लाइटबॉक्स/मॉडल
+    ---------------------------------------------
+*/
+
+/* लाइटबॉक्स (इमेज पॉपअप) का डिफ़ॉल्ट स्टाइल */
 .lightbox {
-    display: none; 
+    display: none; /* शुरुआत में छुपा हुआ */
     position: fixed;
-    z-index: 2000; 
+    z-index: 2000; /* सबसे ऊपर लेयर */
     padding-top: 60px; 
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0,0,0,0.9); /* गहरा पारदर्शी पृष्ठभूमि */
 }
 
+/* लाइटबॉक्स के अंदर की सामग्री (इमेज) का स्टाइल */
 .lightbox-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 900px;
     max-height: 90vh;
-    object-fit: contain;
+    object-fit: contain; /* कंटेनर के अंदर इमेज को फिट करता है */
 }
 
+/* लाइटबॉक्स बंद करने वाले बटन (X) का स्टाइल */
 .close-btn {
     position: absolute;
     top: 15px;
@@ -580,6 +718,7 @@ footer {
     cursor: pointer;
 }
 
+/* बंद बटन पर होवर/फोकस इफ़ेक्ट */
 .close-btn:hover,
 .close-btn:focus {
     color: #bbb;
@@ -587,23 +726,38 @@ footer {
     cursor: pointer;
 }
 
-/* --- ACCESSIBILITY/FOCUS STATES --- */
+/*
+    ---------------------------------------------
+    ♿ Accessibility/Focus States - सुलभता/फोकस स्थितियाँ
+    ---------------------------------------------
+*/
+
+/* एक्सेसिबिलिटी के लिए फोकस होने पर तत्वों पर विज़ुअल आउटलाइन सेट करता है */
 a:focus, button:focus, .skill-badge:focus {
     outline: 3px solid var(--color-primary);
     outline-offset: 3px;
 }
 
 
-/* ==================================== */
-/* RESPONSIVE DESIGN           */
-/* ==================================== */
+/*
+    ====================================
+    📱 RESPONSIVE DESIGN - उत्तरदायी डिज़ाइन
+    ====================================
+*/
 
-/* Tablet & Smaller Desktop */
+/*
+    ---------------------------------------------
+    💻 Tablet & Smaller Desktop (अधिकतम 992px चौड़ाई)
+    ---------------------------------------------
+*/
+
 @media (max-width: 992px) {
+    /* विशेषज्ञता और टूल्स ग्रिड को 2-कॉलम लेआउट में बदलता है */
     .expertise-grid, .tools-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* हीरो सामग्री को सिंगल-कॉलम में बदलता है और केंद्र संरेखित करता है */
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -613,49 +767,63 @@ a:focus, button:focus, .skill-badge:focus {
         text-align: center;
     }
     
+    /* मुख्य प्रोजेक्ट कार्ड को सिंगल-कॉलम में बदलता है */
     .main-project {
         grid-template-columns: 1fr;
     }
 
+    /* मोबाइल पर प्रोजेक्ट इमेज को विवरण से पहले दिखाता है */
     .project-image-preview {
-        order: -1; /* Move image above details on mobile */
+        order: -1; /* इमेज को ऊपर ले जाता है */
     }
 }
 
-/* Mobile Devices */
+/*
+    ---------------------------------------------
+    📱 Mobile Devices (अधिकतम 768px चौड़ाई)
+    ---------------------------------------------
+*/
+
 @media (max-width: 768px) {
-    /* Header & Nav */
+    /* Header & Nav - हेडर और नेविगेशन */
+    
+    /* मेनू टॉगल बटन को दिखाता है */
     .menu-toggle {
         display: block;
     }
 
+    /* मोबाइल नेविगेशन बार की स्टाइल (शुरुआत में छुपा हुआ) */
     #navbar {
         position: absolute;
-        top: 65px; /* Adjust based on header height */
+        top: 65px; /* हेडर ऊंचाई के आधार पर एडजस्ट करें */
         right: 0;
         width: 250px;
         background-color: var(--color-dark-bg);
         box-shadow: var(--shadow-premium);
-        transform: translateX(100%);
+        transform: translateX(100%); /* दाईं ओर से बाहर */
         transition: transform 0.3s ease-in-out;
         padding: var(--spacing-md) 0;
         border-radius: 0 0 0 var(--border-radius);
     }
     
+    /* जब मेनू सक्रिय हो, तो उसे दिखाता है */
     #navbar.active {
         transform: translateX(0);
     }
     
+    /* नेविगेशन लिंक को लंबवत (column) में व्यवस्थित करता है */
     .nav-links {
         flex-direction: column;
         align-items: flex-start;
     }
 
+    /* प्रत्येक नेविगेशन लिस्ट आइटम को पूरी चौड़ाई देता है */
     .nav-links li {
         margin: 0;
         width: 100%;
     }
 
+    /* नेविगेशन लिंक को ब्लॉक डिस्प्ले देता है और सफ़ेद रंग सेट करता है */
     .nav-links a {
         display: block;
         padding: 10px var(--spacing-md);
@@ -663,31 +831,39 @@ a:focus, button:focus, .skill-badge:focus {
         width: 100%;
     }
     
+    /* मोबाइल मेनू लिंक पर होवर इफ़ेक्ट */
     .nav-links a:hover {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
+    /* मोबाइल पर लिंक के नीचे की रेखा हटाता है */
     .nav-links a::after {
         display: none;
     }
     
-    /* Sections */
+    /* Sections - खंड */
+    
+    /* विशेषज्ञता और टूल्स ग्रिड को सिंगल-कॉलम लेआउट में बदलता है */
     .expertise-grid, .tools-grid {
         grid-template-columns: 1fr;
     }
     
+    /* SEO प्रोजेक्ट ग्रिड को सिंगल-कॉलम में बदलता है */
     .seo-projects-grid {
         grid-template-columns: 1fr;
     }
 
+    /* बड़े हेडिंग का साइज़ मोबाइल के लिए एडजस्ट करता है */
     .heading-large {
         font-size: 3rem;
     }
     
+    /* सेक्शन शीर्षक का साइज़ मोबाइल के लिए एडजस्ट करता है */
     .section-title {
         font-size: 2rem;
     }
     
+    /* संपर्क कार्ड की पैडिंग मोबाइल के लिए कम करता है */
     .contact-card {
         padding: var(--spacing-md);
     }
