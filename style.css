@@ -10,7 +10,7 @@
     --color-secondary: #f8f9fa; /* Light background for alt sections */
     --color-text: #333; /* Dark text */
     --color-heading: #1a1a1a; /* Very dark headings */
-    --color-background: /*#ffffff;*/ #0d1117; /* White page background */
+    --color-background: #ffffff;/* White page background */
     --color-dark-bg:   #1e1e1e;/* Dark background for fixed header on scroll */
 
     /* Typography */
