@@ -1,22 +1,20 @@
-/* ************************************************************
-   GOOGLE FONTS IMPORT: यहाँ से Montserrat फोंट लोड हो रहा है
-   ************************************************************ */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+/*
+    Google Fonts Import Placeholder:
+    Uncomment and replace with your chosen Google Font, e.g.:
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+*/
 
-/* ************************************************************
-   ROOT VARIABLES: इसमें कलर्स, फोंट फैमिली और स्पेसिंग की सेटिंग्स है
-   ************************************************************ */
 :root {
     /* Colors */
-    --color-primary: #007bff; 
-    --color-secondary: #f8f9fa; 
-    --color-text: #333; 
-    --color-heading: #1a1a1a; 
-    --color-background: #ffffff; 
-    --color-dark-bg: #1e1e1e;
+    --color-primary: #007bff; /* Blue for highlights */
+    --color-secondary: #f8f9fa; /* Light background for alt sections */
+    --color-text: #333; /* Dark text */
+    --color-heading: #1a1a1a; /* Very dark headings */
+    --color-background: #ffffff; /* White page background */
+    --color-dark-bg:   #1e1e1e;/* Dark background for fixed header on scroll */
 
-    /* Typography - यहाँ आपका वही ओरिजिनल फोंट सेट है */
-    --font-family-main: 'Montserrat', sans-serif; 
+    /* Typography */
+    --font-family-main: 'Montserrat', sans-serif; /* Replace 'Montserrat' if using a different font */
     --font-size-base: 1.1rem;
 
     /* Spacing & Borders */
@@ -26,6 +24,7 @@
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15);
 
+    /* --- ADDED BRAND COLORS FOR ICONS --- */
     /* Social Media Colors */
     --color-linkedin: #0A66C2;
     --color-youtube: #FF0000;
@@ -33,9 +32,10 @@
     --color-facebook: #1877F2;
     --color-whatsapp: #25D366;
 
+
     /* Tool Colors */
     --color-shopify: #96BF48;
-    --color-search-console: #4285F4;
+    --color-search-console: #4285F4; /* Google Blue */
     --color-google-ads: #4285F4; 
     --color-ahrefs: #ff6938; 
     --color-screaming-frog: #F98D20;
@@ -46,13 +46,11 @@
     --color-jira: #0052CC;
     --color-mysql: #00758F;
     --color-postman: #FF6C37;
-    --color-database: #34495e;
+    --color-database: #34495e; /* Database fallback/darker color */
+    /* ------------------------------------- */
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   RESET & BASE STYLES: ब्राउज़र की डिफ़ॉल्ट मार्जिन/पैडिंग हटाना
-   ************************************************************ */
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -70,11 +68,8 @@ body {
     background-color: var(--color-background);
     line-height: 1.6;
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   TYPOGRAPHY: हेडिंग्स और लिंक्स की लिखावट और स्टाइलिंग
-   ************************************************************ */
+/* Typography */
 h1, h2, h3 {
     font-family: var(--font-family-main);
     color: var(--color-heading);
@@ -112,7 +107,9 @@ a {
     transition: color 0.3s ease;
 }
 
-a:hover { color: #0056b3; }
+a:hover {
+    color: #0056b3;
+}
 
 .container {
     max-width: 1200px;
@@ -120,27 +117,30 @@ a:hover { color: #0056b3; }
     padding: 0 var(--spacing-md);
 }
 
-.section-padding { padding: var(--spacing-lg) 0; }
+.section-padding {
+    padding: var(--spacing-lg) 0;
+}
 
-.section-alt-bg { background-color: var(--color-secondary); }
-/* ************************************************************ */
+.section-alt-bg {
+    background-color: var(--color-secondary);
+}
 
-/* ************************************************************
-   HEADER & NAVIGATION: वेबसाइट का मेनू, लोगो और सोशल लिंक्स
-   ************************************************************ */
+/* --- HEADER & NAVIGATION --- */
 #header {
     position: fixed;
-    top: 0; left: 0; width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    background-color: #0B121A; 
+    background-color: #0B121A; /* DARK */ /*transparent;*/
     transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
     padding: 10px 0;
 }
 
 #header.scrolled {
-    background-color: rgb(10, 18, 26);
+    background-color: /*rgba(255, 255, 255, 0.95);*/ rgb(10, 18, 26);/* Translucent background */
     box-shadow: var(--shadow-subtle);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Glass/Blur effect */
 }
 
 .header-content {
@@ -149,7 +149,7 @@ a:hover { color: #0056b3; }
     align-items: center;
 }
 
-/* सोशल आइकन्स स्टाइल */
+/* CHANGE 1: Social Icons - Original Colors */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
@@ -157,20 +157,34 @@ a:hover { color: #0056b3; }
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.social-icons a:hover { transform: translateY(-2px); }
+.social-icons a:hover {
+    /* Hover effect maintains original color or slightly darker shade */
+    transform: translateY(-2px);
+}
 
 .social-icons .fa-linkedin { color: var(--color-linkedin); }
 .social-icons .fa-youtube { color: var(--color-youtube); }
 .social-icons .fa-twitter { color: var(--color-twitter); }
 .social-icons .fa-facebook-f { color: var(--color-facebook); }
-.social-icons .fa-whatsapp { color: rgb(37, 211, 102); }
+/*.social-icons .fa-whatsapp { color: var(--color-whatsapp); }*/
+.social-icons .fa-whatsapp {color: rgb(37, 211, 102);
+}
 
-/* नेविगेशन लिंक्स */
-.nav-links { list-style: none; display: flex; }
-.nav-links li { margin-left: 20px; }
+
+
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
 
 .nav-links a {
-    color: #fff;
+    color: /*var*/  #fff;   /* white */(--color-heading);
     font-weight: 600;
     padding: 5px 0;
     position: relative;
@@ -180,31 +194,34 @@ a:hover { color: #0056b3; }
 .nav-links a::after {
     content: '';
     position: absolute;
-    width: 0; height: 2px;
-    bottom: -3px; left: 0;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
     background-color: var(--color-primary);
     transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after, .nav-links a:focus::after { width: 100%; }
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+    width: 100%;
+}
 
 .menu-toggle {
     display: none;
-    background: none; border: none;
+    background: none;
+    border: none;
     color: var(--color-heading);
     font-size: 1.8rem;
     cursor: pointer;
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   HERO SECTION: टॉप सेक्शन (फोटो, नाम और इंट्रोडक्शन)
-   ************************************************************ */
+/* --- TOP SECTION (HERO) --- */
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 100px; /* Space for fixed header */
 }
 
 .hero-content {
@@ -214,7 +231,9 @@ a:hover { color: #0056b3; }
     gap: var(--spacing-lg);
 }
 
-.hero-image-container { text-align: center; }
+.hero-image-container {
+    text-align: center;
+}
 
 .profile-img {
     width: 100%;
@@ -226,7 +245,9 @@ a:hover { color: #0056b3; }
     border: 8px solid var(--color-secondary);
 }
 
-.hero-text { text-align: left; }
+.hero-text {
+    text-align: left;
+}
 
 .subtitle {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
@@ -234,7 +255,10 @@ a:hover { color: #0056b3; }
     font-weight: 300;
 }
 
-.subtitle strong { font-weight: 700; color: var(--color-primary); }
+.subtitle strong {
+    font-weight: 700;
+    color: var(--color-primary);
+}
 
 .cta-button {
     display: inline-block;
@@ -249,16 +273,14 @@ a:hover { color: #0056b3; }
     letter-spacing: 1px;
 }
 
-.cta-button:hover, .cta-button:focus {
+.cta-button:hover,
+.cta-button:focus {
     background-color: #0056b3;
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   EXPERTISE SECTION: आपकी स्किल्स और एक्सपर्टीज ग्रिड
-   ************************************************************ */
+/* --- EXPERTISE SECTION --- */
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -286,7 +308,11 @@ a:hover { color: #0056b3; }
     border-bottom: 2px solid var(--color-secondary);
 }
 
-.badge-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
 .skill-badge {
     display: inline-block;
@@ -305,11 +331,8 @@ a:hover { color: #0056b3; }
     color: white;
     transform: scale(1.05);
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   TOOLS SECTION: टूल्स लिस्ट और उनके ओरिजिनल कलर आइकन्स
-   ************************************************************ */
+/* --- TOOLS SECTION --- */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -331,7 +354,9 @@ a:hover { color: #0056b3; }
     padding-left: 10px;
 }
 
-.tool-category ul { list-style: none; }
+.tool-category ul {
+    list-style: none;
+}
 
 .tool-category li {
     padding: 8px 0;
@@ -339,29 +364,36 @@ a:hover { color: #0056b3; }
     border-bottom: 1px dashed #e9ecef;
 }
 
-.tool-category li i { color: var(--color-primary); width: 25px; transition: color 0.3s ease; }
+/* CHANGE 2: Tools List Icons - Original Colors */
+.tool-category li i {
+    color: var(--color-primary); /* Default/Fallback */
+    width: 25px;
+    transition: color 0.3s ease;
+}
 
-/* ब्रांड्स के हिसाब से आइकन्स के रंग */
-.tool-category li .fa-wrench { color: var(--color-shopify); }
-.tool-category li .fa-search { color: var(--color-search-console); }
-.tool-category li .fa-bullhorn { color: var(--color-google-ads); }
-.tool-category li .fa-facebook-f { color: var(--color-facebook); }
-.tool-category li .fa-chart-line { color: var(--color-ahrefs); }
-.tool-category li .fa-frog { color: var(--color-screaming-frog); }
-.tool-category li .fa-rocket { color: var(--color-hubspot); }
-.tool-category li .fa-chart-bar { color: var(--color-analytics); }
-.tool-category li .fa-superscript { color: var(--color-excel); }
-.tool-category li .fa-envelope { color: var(--color-outlook); }
-.tool-category li .fa-code { color: var(--color-excel); }
+/* Ecommerce Tools */
+.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify - using wrench icon */
+.tool-category li .fa-search { color: var(--color-search-console); } /* Search Console */
+.tool-category li .fa-bullhorn { color: var(--color-google-ads); } /* Google Ads */
+.tool-category li .fa-facebook-f { color: var(--color-facebook); } /* Meta Ads */
+.tool-category li .fa-chart-line { color: var(--color-ahrefs); } /* Ahrefs */
+.tool-category li .fa-frog { color: var(--color-screaming-frog); } /* Screaming Frog */
+.tool-category li .fa-rocket { color: var(--color-hubspot); } /* HubSpot */
+.tool-category li .fa-chart-bar { color: var(--color-analytics); } /* Google Analytics */
+
+/* MIS Tools */
+.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA - using superscript icon for formula reference */
+.tool-category li .fa-envelope { color: var(--color-outlook); } /* Outlook */
+.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro - using Excel color */
+
+/* Software Testing Tools */
 .tool-category li .fa-jira { color: var(--color-jira); }
-.tool-category li .fa-tachometer-alt { color: var(--color-primary); }
-.tool-category li .fa-server { color: var(--color-mysql); }
-.tool-category li .fa-paper-plane { color: var(--color-postman); }
-/* ************************************************************ */
+.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter - keeping primary blue as no specific standard FA color */
+.tool-category li .fa-server { color: var(--color-mysql); } /* MySQL */
+.tool-category li .fa-paper-plane { color: var(--color-postman); } /* Postman */
 
-/* ************************************************************
-   PROJECTS SECTION: प्रोजेक्ट कार्ड्स और SEO प्रोजेक्ट्स ग्रिड
-   ************************************************************ */
+
+/* --- PROJECTS SECTION --- */
 .project-card {
     display: flex;
     align-items: center;
@@ -379,15 +411,26 @@ a:hover { color: #0056b3; }
     padding: var(--spacing-md);
 }
 
-.project-details { padding-right: var(--spacing-md); }
+.project-details {
+    padding-right: var(--spacing-md);
+}
 
-.project-title { font-size: 1.8rem; color: var(--color-primary); margin-bottom: 10px; }
+.project-title {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
 
-.project-description { margin-bottom: var(--spacing-md); line-height: 1.7; }
+.project-description {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
 
 .project-image-preview img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
     border-radius: var(--border-radius);
     transition: transform 0.5s ease;
 }
@@ -401,11 +444,15 @@ a:hover { color: #0056b3; }
     transition: background-color 0.3s ease;
 }
 
-.project-link:hover { background-color: var(--color-primary); }
+.project-link:hover {
+    background-color: var(--color-primary);
+}
 
 .subsection-title {
-    font-size: 2rem; text-align: center;
-    margin-top: var(--spacing-lg); margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .seo-projects-grid {
@@ -430,28 +477,37 @@ a:hover { color: #0056b3; }
     box-shadow: var(--shadow-premium);
 }
 
+
 .seo-image-card img, .certification-card img {
-    width: 100%; height: auto; max-height: 400px;
-    object-fit: cover; border-radius: var(--border-radius);
-    display: block; margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Fixed height aesthetic */
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    display: block;
+    margin-bottom: 10px;
 }
 
 .seo-image-card figcaption, .certification-card figcaption {
-    font-style: italic; font-size: 1rem; color: var(--color-text);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-text);
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   CERTIFICATIONS & CONTACT: सर्टिफिकेट ग्रिड और कांटेक्ट सेक्शन
-   ************************************************************ */
+
+
+
+/* --- CERTIFICATIONS & AWARDS --- */
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
 
+/* --- CONTACT SECTION --- */
 .contact-card {
-    max-width: 500px; margin: 0 auto;
+    max-width: 500px;
+    margin: 0 auto;
     padding: var(--spacing-lg);
     background-color: white;
     border-radius: var(--border-radius);
@@ -459,20 +515,32 @@ a:hover { color: #0056b3; }
     text-align: center;
 }
 
-.contact-card h3 { font-size: 2rem; margin-bottom: var(--spacing-md); color: var(--color-primary); }
+.contact-card h3 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
 
-.contact-card ul { list-style: none; margin-bottom: var(--spacing-md); }
+.contact-card ul {
+    list-style: none;
+    margin-bottom: var(--spacing-md);
+}
 
-.contact-card li { padding: 8px 0; font-size: 1.1rem; }
+.contact-card li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+}
 
-.contact-card li i { margin-right: 10px; color: var(--color-primary); }
+.contact-card li i {
+    margin-right: 10px;
+    color: var(--color-primary);
+}
 
-.contact-social a { font-size: 1.8rem; }
-/* ************************************************************ */
+.contact-social a {
+    font-size: 1.8rem;
+}
 
-/* ************************************************************
-   FOOTER: कॉपीराइट और बॉटम बार
-   ************************************************************ */
+/* --- FOOTER --- */
 footer {
     background-color: var(--color-dark-bg);
     color: white;
@@ -480,67 +548,150 @@ footer {
     text-align: center;
     font-size: 0.9rem;
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   LIGHTBOX/MODAL: इमेज ज़ूम करने के लिए पॉपअप स्टाइल
-   ************************************************************ */
+/* --- LIGHTBOX/MODAL --- */
 .lightbox {
-    display: none; position: fixed; z-index: 2000;
-    padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%;
-    overflow: auto; background-color: rgba(0,0,0,0.9);
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
 }
 
 .lightbox-content {
-    margin: auto; display: block; width: 80%;
-    max-width: 900px; max-height: 90vh;
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 90vh;
     object-fit: contain;
 }
 
 .close-btn {
-    position: absolute; top: 15px; right: 35px;
-    color: #f1f1f1; font-size: 40px; font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
     cursor: pointer;
 }
 
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* --- ACCESSIBILITY/FOCUS STATES --- */
 a:focus, button:focus, .skill-badge:focus {
     outline: 3px solid var(--color-primary);
     outline-offset: 3px;
 }
-/* ************************************************************ */
 
-/* ************************************************************
-   RESPONSIVE DESIGN: मोबाइल और टैबलेट के लिए लेआउट बदलाव
-   ************************************************************ */
+
+/* ==================================== */
+/* RESPONSIVE DESIGN           */
+/* ==================================== */
 
 /* Tablet & Smaller Desktop */
 @media (max-width: 992px) {
-    .expertise-grid, .tools-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-content { grid-template-columns: 1fr; text-align: center; }
-    .hero-text { text-align: center; }
-    .main-project { grid-template-columns: 1fr; }
-    .project-image-preview { order: -1; }
+    .expertise-grid, .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .main-project {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image-preview {
+        order: -1; /* Move image above details on mobile */
+    }
 }
 
 /* Mobile Devices */
 @media (max-width: 768px) {
-    .menu-toggle { display: block; }
+    /* Header & Nav */
+    .menu-toggle {
+        display: block;
+    }
+
     #navbar {
-        position: absolute; top: 65px; right: 0; width: 250px;
+        position: absolute;
+        top: 65px; /* Adjust based on header height */
+        right: 0;
+        width: 250px;
         background-color: var(--color-dark-bg);
+        box-shadow: var(--shadow-premium);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         padding: var(--spacing-md) 0;
         border-radius: 0 0 0 var(--border-radius);
     }
-    #navbar.active { transform: translateX(0); }
-    .nav-links { flex-direction: column; align-items: flex-start; }
-    .nav-links li { margin: 0; width: 100%; }
-    .nav-links a { display: block; padding: 10px var(--spacing-md); color: white; width: 100%; }
-    .nav-links a::after { display: none; }
-    .expertise-grid, .tools-grid, .seo-projects-grid { grid-template-columns: 1fr; }
-    .heading-large { font-size: 3rem; }
-    .section-title { font-size: 2rem; }
-    .contact-card { padding: var(--spacing-md); }
+    
+    #navbar.active {
+        transform: translateX(0);
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px var(--spacing-md);
+        color: white;
+        width: 100%;
+    }
+    
+    .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+    
+    /* Sections */
+    .expertise-grid, .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .seo-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heading-large {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .contact-card {
+        padding: var(--spacing-md);
+    }
 }
-/* ************************************************************ */
