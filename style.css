@@ -703,3 +703,26 @@ a:focus, button:focus, .skill-badge:focus {
         padding: var(--spacing-md);
     }
 }
+
+
+
+/************************************************************/
+
+
+
+@media (max-width: 768px) {
+
+  /* Hamburger icon force dark white */
+  .menu-toggle,
+  .menu-toggle i,
+  .menu-toggle span,
+  .menu-toggle span::before,
+  .menu-toggle span::after,
+  .menu-toggle svg,
+  .menu-toggle svg path {
+      color: #e6e6e6 !important;
+      background-color: #e6e6e6 !important;
+      fill: #e6e6e6 !important;
+  }
+
+}
