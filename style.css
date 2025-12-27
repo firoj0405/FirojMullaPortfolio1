@@ -184,7 +184,7 @@ a:hover {
 }
 
 .nav-links a {
-    color: var(--color-heading);
+    color: /*var*/  #fff;   /* white */(--color-heading);
     font-weight: 600;
     padding: 5px 0;
     position: relative;
