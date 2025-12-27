@@ -631,6 +631,14 @@ a:focus, button:focus, .skill-badge:focus {
     .menu-toggle {
         display: block;
     }
+  /* Hamburger menu – 3 lines dark white */
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+        background-color: #e6e6e6; /* dark white */
+    }
+
+}
 
     #navbar {
         position: absolute;
