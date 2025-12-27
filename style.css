@@ -631,10 +631,7 @@ a:focus, button:focus, .skill-badge:focus {
     .menu-toggle {
         display: block;
     }
- .navbar-toggler-icon {
-      filter: invert(1) brightness(0.85);
-  }
-}
+
 
     #navbar {
         position: absolute;
