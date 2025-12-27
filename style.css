@@ -479,16 +479,6 @@ a:hover {
 
 <!-- ------------------------------------------------------ -->
 
-.seo-image-card img,
-.certification-card img {
-    width: 100%;
-    max-width: 387px;
-    height: 190px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    display: block;
-    margin: auto;
-}
 
 
 <!-- ------------------------------------------------------ -->
