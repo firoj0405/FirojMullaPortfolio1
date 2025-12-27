@@ -479,20 +479,17 @@ a:hover {
 
 <!-- ------------------------------------------------------ -->
 
-.seo-image-card, .certification-card {
-    text-align: center;
-    background-color: white;
-    padding: var(--spacing-md);
+.seo-image-card img,
+.certification-card img {
+    width: 100%;
+    max-width: 387px;
+    height: 190px;
+    object-fit: cover;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-subtle);
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    display: block;
+    margin: auto;
 }
 
-.seo-image-card:hover, .certification-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-premium);
-}
 
 <!-- ------------------------------------------------------ -->
 
