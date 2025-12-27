@@ -1,20 +1,22 @@
-/*
-    Google Fonts Import Placeholder:
-    Uncomment and replace with your chosen Google Font, e.g.:
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+/* GOOGLE FONTS IMPORT: यहाँ से आपकी वेबसाइट के फोंट्स लोड होते हैं
 */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
+/* ************************************************************
+   ROOT VARIABLES SECTION: यहाँ पूरी वेबसाइट के कलर्स, फोंट्स, और स्पेसिंग की सेटिंग्स है।
+   इसमें बदलाव करने से पूरी वेबसाइट के रंग एक साथ बदल जाते हैं।
+   ************************************************************ */
 :root {
     /* Colors */
-    --color-primary: #007bff; /* Blue for highlights */
-    --color-secondary: #f8f9fa; /* Light background for alt sections */
-    --color-text: #333; /* Dark text */
-    --color-heading: #1a1a1a; /* Very dark headings */
-    --color-background: #ffffff; /* White page background */
-    --color-dark-bg:   #1e1e1e;/* Dark background for fixed header on scroll */
+    --color-primary: #007bff; 
+    --color-secondary: #f8f9fa; 
+    --color-text: #333; 
+    --color-heading: #1a1a1a; 
+    --color-background: #ffffff; 
+    --color-dark-bg: #1e1e1e;
 
     /* Typography */
-    --font-family-main: 'Montserrat', sans-serif; /* Replace 'Montserrat' if using a different font */
+    --font-family-main: 'Montserrat', sans-serif; 
     --font-size-base: 1.1rem;
 
     /* Spacing & Borders */
@@ -24,7 +26,6 @@
     --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.15);
 
-    /* --- ADDED BRAND COLORS FOR ICONS --- */
     /* Social Media Colors */
     --color-linkedin: #0A66C2;
     --color-youtube: #FF0000;
@@ -32,10 +33,9 @@
     --color-facebook: #1877F2;
     --color-whatsapp: #25D366;
 
-
-    /* Tool Colors */
+    /* Tool Icons Colors */
     --color-shopify: #96BF48;
-    --color-search-console: #4285F4; /* Google Blue */
+    --color-search-console: #4285F4;
     --color-google-ads: #4285F4; 
     --color-ahrefs: #ff6938; 
     --color-screaming-frog: #F98D20;
@@ -46,11 +46,14 @@
     --color-jira: #0052CC;
     --color-mysql: #00758F;
     --color-postman: #FF6C37;
-    --color-database: #34495e; /* Database fallback/darker color */
-    /* ------------------------------------- */
+    --color-database: #34495e;
 }
+/* ************************************************************ */
 
-/* Reset and Base Styles */
+/* ************************************************************
+   RESET & BASE STYLES: यह सेक्शन ब्राउज़र की डिफ़ॉल्ट सेटिंग्स को हटाता है 
+   और पूरी बॉडी का बैकग्राउंड और फोंट सेट करता है।
+   ************************************************************ */
 * {
     margin: 0;
     padding: 0;
@@ -68,8 +71,12 @@ body {
     background-color: var(--color-background);
     line-height: 1.6;
 }
+/* ************************************************************ */
 
-/* Typography */
+/* ************************************************************
+   TYPOGRAPHY SECTION: इसमें सभी हेडिंग्स (H1, H2, H3), टाइटल्स और 
+   लिंक्स (Links) की स्टाइलिंग और उनके होवर इफेक्ट्स हैं।
+   ************************************************************ */
 h1, h2, h3 {
     font-family: var(--font-family-main);
     color: var(--color-heading);
@@ -124,23 +131,27 @@ a:hover {
 .section-alt-bg {
     background-color: var(--color-secondary);
 }
+/* ************************************************************ */
 
-/* --- HEADER & NAVIGATION --- */
+/* ************************************************************
+   HEADER & NAVIGATION SECTION: इसमें टॉप मेनू बार, नेविगेशन लिंक्स, 
+   लोगो, और सोशल मीडिया के आइकन्स की सेटिंग्स है।
+   ************************************************************ */
 #header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #0B121A; /* DARK */ /*transparent;*/
+    background-color: #0B121A; 
     transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
     padding: 10px 0;
 }
 
 #header.scrolled {
-    background-color: /*rgba(255, 255, 255, 0.95);*/ rgb(10, 18, 26);/* Translucent background */
+    background-color: rgb(10, 18, 26);
     box-shadow: var(--shadow-subtle);
-    backdrop-filter: blur(5px); /* Glass/Blur effect */
+    backdrop-filter: blur(5px);
 }
 
 .header-content {
@@ -149,7 +160,6 @@ a:hover {
     align-items: center;
 }
 
-/* CHANGE 1: Social Icons - Original Colors */
 .social-icons a {
     font-size: 1.4rem;
     margin-right: 15px;
@@ -158,21 +168,15 @@ a:hover {
 }
 
 .social-icons a:hover {
-    /* Hover effect maintains original color or slightly darker shade */
     transform: translateY(-2px);
 }
 
+/* सोशल मीडिया आइकन्स के स्पेसिफिक कलर्स */
 .social-icons .fa-linkedin { color: var(--color-linkedin); }
 .social-icons .fa-youtube { color: var(--color-youtube); }
 .social-icons .fa-twitter { color: var(--color-twitter); }
 .social-icons .fa-facebook-f { color: var(--color-facebook); }
-/*.social-icons .fa-whatsapp { color: var(--color-whatsapp); }*/
-.social-icons .fa-whatsapp {color: rgb(37, 211, 102);
-}
-
-
-
-
+.social-icons .fa-whatsapp { color: rgb(37, 211, 102); }
 
 .nav-links {
     list-style: none;
@@ -184,7 +188,7 @@ a:hover {
 }
 
 .nav-links a {
-    color: /*var*/  #fff;   /* white */(--color-heading);
+    color: #fff;
     font-weight: 600;
     padding: 5px 0;
     position: relative;
@@ -215,13 +219,17 @@ a:hover {
     font-size: 1.8rem;
     cursor: pointer;
 }
+/* ************************************************************ */
 
-/* --- TOP SECTION (HERO) --- */
+/* ************************************************************
+   HERO SECTION: होम पेज का मुख्य बैनर जहाँ आपकी फोटो, नाम और 
+   CTA (Call to Action) बटन है।
+   ************************************************************ */
 .hero-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
-    padding-top: 100px; /* Space for fixed header */
+    padding-top: 100px;
 }
 
 .hero-content {
@@ -279,8 +287,12 @@ a:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
 }
+/* ************************************************************ */
 
-/* --- EXPERTISE SECTION --- */
+/* ************************************************************
+   EXPERTISE SECTION: आपकी स्किल्स (Skills) और एक्सपर्टीज को ग्रिड 
+   फॉर्मेट में दिखाने वाला सेक्शन।
+   ************************************************************ */
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -331,8 +343,12 @@ a:hover {
     color: white;
     transform: scale(1.05);
 }
+/* ************************************************************ */
 
-/* --- TOOLS SECTION --- */
+/* ************************************************************
+   TOOLS SECTION: आपके द्वारा उपयोग किए जाने वाले टूल्स (जैसे Shopify, 
+   Jira, Excel) की लिस्ट और उनके कलर आइकन्स।
+   ************************************************************ */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -364,36 +380,34 @@ a:hover {
     border-bottom: 1px dashed #e9ecef;
 }
 
-/* CHANGE 2: Tools List Icons - Original Colors */
 .tool-category li i {
-    color: var(--color-primary); /* Default/Fallback */
+    color: var(--color-primary); 
     width: 25px;
     transition: color 0.3s ease;
 }
 
-/* Ecommerce Tools */
-.tool-category li .fa-wrench { color: var(--color-shopify); } /* Shopify - using wrench icon */
-.tool-category li .fa-search { color: var(--color-search-console); } /* Search Console */
-.tool-category li .fa-bullhorn { color: var(--color-google-ads); } /* Google Ads */
-.tool-category li .fa-facebook-f { color: var(--color-facebook); } /* Meta Ads */
-.tool-category li .fa-chart-line { color: var(--color-ahrefs); } /* Ahrefs */
-.tool-category li .fa-frog { color: var(--color-screaming-frog); } /* Screaming Frog */
-.tool-category li .fa-rocket { color: var(--color-hubspot); } /* HubSpot */
-.tool-category li .fa-chart-bar { color: var(--color-analytics); } /* Google Analytics */
-
-/* MIS Tools */
-.tool-category li .fa-superscript { color: var(--color-excel); } /* Advanced Excel/VBA - using superscript icon for formula reference */
-.tool-category li .fa-envelope { color: var(--color-outlook); } /* Outlook */
-.tool-category li .fa-code { color: var(--color-excel); } /* VBA / Macro - using Excel color */
-
-/* Software Testing Tools */
+/* टूल्स के खास कलर्स (Icons) */
+.tool-category li .fa-wrench { color: var(--color-shopify); }
+.tool-category li .fa-search { color: var(--color-search-console); }
+.tool-category li .fa-bullhorn { color: var(--color-google-ads); }
+.tool-category li .fa-facebook-f { color: var(--color-facebook); }
+.tool-category li .fa-chart-line { color: var(--color-ahrefs); }
+.tool-category li .fa-frog { color: var(--color-screaming-frog); }
+.tool-category li .fa-rocket { color: var(--color-hubspot); }
+.tool-category li .fa-chart-bar { color: var(--color-analytics); }
+.tool-category li .fa-superscript { color: var(--color-excel); }
+.tool-category li .fa-envelope { color: var(--color-outlook); }
+.tool-category li .fa-code { color: var(--color-excel); }
 .tool-category li .fa-jira { color: var(--color-jira); }
-.tool-category li .fa-tachometer-alt { color: var(--color-primary); } /* JMeter - keeping primary blue as no specific standard FA color */
-.tool-category li .fa-server { color: var(--color-mysql); } /* MySQL */
-.tool-category li .fa-paper-plane { color: var(--color-postman); } /* Postman */
+.tool-category li .fa-tachometer-alt { color: var(--color-primary); }
+.tool-category li .fa-server { color: var(--color-mysql); }
+.tool-category li .fa-paper-plane { color: var(--color-postman); }
+/* ************************************************************ */
 
-
-/* --- PROJECTS SECTION --- */
+/* ************************************************************
+   PROJECTS SECTION: आपके मुख्य प्रोजेक्ट्स और SEO प्रोजेक्ट्स का 
+   डिस्प्ले सेक्शन। इसमें इमेज कार्ड्स भी शामिल हैं।
+   ************************************************************ */
 .project-card {
     display: flex;
     align-items: center;
@@ -477,11 +491,10 @@ a:hover {
     box-shadow: var(--shadow-premium);
 }
 
-
 .seo-image-card img, .certification-card img {
     width: 100%;
     height: auto;
-    max-height: 400px; /* Fixed height aesthetic */
+    max-height: 400px;
     object-fit: cover;
     border-radius: var(--border-radius);
     display: block;
@@ -493,18 +506,23 @@ a:hover {
     font-size: 1rem;
     color: var(--color-text);
 }
+/* ************************************************************ */
 
-
-
-
-/* --- CERTIFICATIONS & AWARDS --- */
+/* ************************************************************
+   CERTIFICATIONS & AWARDS: सर्टिफिकेट्स और उपलब्धियों को ग्रिड में 
+   दिखाने के लिए।
+   ************************************************************ */
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
 }
+/* ************************************************************ */
 
-/* --- CONTACT SECTION --- */
+/* ************************************************************
+   CONTACT SECTION: कांटेक्ट कार्ड, सोशल मीडिया लिंक्स और ईमेल/फोन 
+   दिखाने के लिए।
+   ************************************************************ */
 .contact-card {
     max-width: 500px;
     margin: 0 auto;
@@ -539,8 +557,11 @@ a:hover {
 .contact-social a {
     font-size: 1.8rem;
 }
+/* ************************************************************ */
 
-/* --- FOOTER --- */
+/* ************************************************************
+   FOOTER: वेबसाइट का सबसे नीचे का हिस्सा जहाँ कॉपीराइट जानकारी होती है।
+   ************************************************************ */
 footer {
     background-color: var(--color-dark-bg);
     color: white;
@@ -548,8 +569,12 @@ footer {
     text-align: center;
     font-size: 0.9rem;
 }
+/* ************************************************************ */
 
-/* --- LIGHTBOX/MODAL --- */
+/* ************************************************************
+   LIGHTBOX/MODAL: इमेज पर क्लिक करने पर जो बड़ा इमेज बॉक्स खुलता है, 
+   उसकी स्टाइलिंग।
+   ************************************************************ */
 .lightbox {
     display: none; 
     position: fixed;
@@ -590,18 +615,18 @@ footer {
     cursor: pointer;
 }
 
-/* --- ACCESSIBILITY/FOCUS STATES --- */
 a:focus, button:focus, .skill-badge:focus {
     outline: 3px solid var(--color-primary);
     outline-offset: 3px;
 }
+/* ************************************************************ */
 
+/* ************************************************************
+   RESPONSIVE DESIGN (MEDIA QUERIES): यह सबसे ज़रूरी हिस्सा है। 
+   यह वेबसाइट को मोबाइल और टैबलेट के स्क्रीन साइज के हिसाब से बदलता है।
+   ************************************************************ */
 
-/* ==================================== */
-/* RESPONSIVE DESIGN           */
-/* ==================================== */
-
-/* Tablet & Smaller Desktop */
+/* टैबलेट और छोटे डेस्कटॉप के लिए */
 @media (max-width: 992px) {
     .expertise-grid, .tools-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -621,28 +646,26 @@ a:focus, button:focus, .skill-badge:focus {
     }
 
     .project-image-preview {
-        order: -1; /* Move image above details on mobile */
+        order: -1; 
     }
 }
 
-/* Mobile Devices */
+/* मोबाइल डिवाइसेस के लिए */
 @media (max-width: 768px) {
-    /* Header & Nav */
     .menu-toggle {
         display: block;
     }
 
-
     #navbar {
         position: absolute;
-        top: 65px; /* Adjust based on header height */
+        top: 65px; 
         right: 0;
         width: 250px;
         background-color: var(--color-dark-bg);
         box-shadow: var(--shadow-premium);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
-        padding: var (--spacing-md) 0;
+        padding: var(--spacing-md) 0;
         border-radius: 0 0 0 var(--border-radius);
     }
     
@@ -675,15 +698,10 @@ a:focus, button:focus, .skill-badge:focus {
         display: none;
     }
     
-    /* Sections */
-    .expertise-grid, .tools-grid {
+    .expertise-grid, .tools-grid, .seo-projects-grid {
         grid-template-columns: 1fr;
     }
     
-    .seo-projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .heading-large {
         font-size: 3rem;
     }
@@ -696,13 +714,4 @@ a:focus, button:focus, .skill-badge:focus {
         padding: var(--spacing-md);
     }
 }
-
-@media (max-width: 768px) {
-  .fa-bars,
-  .fa-times,
-  .fa-xmark {
-      color: #e6e6e6 !important; /* dark white */
-  }
-}
-
-
+/* ************************************************************ */
