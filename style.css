@@ -218,7 +218,7 @@ a:hover {
 
 /* --- TOP SECTION (HERO) --- */
 .hero-section {
-    min-height: 150vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     padding-top: 100px; /* Space for fixed header */
