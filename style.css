@@ -132,13 +132,13 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #111; /* DARK */ /*transparent;*/
+    background-color: #0B121A; /* DARK */ /*transparent;*/
     transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
     padding: 10px 0;
 }
 
 #header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95); /* Translucent background */
+    background-color: /*rgba(255, 255, 255, 0.95);*/ rgb(10, 18, 26);/* Translucent background */
     box-shadow: var(--shadow-subtle);
     backdrop-filter: blur(5px); /* Glass/Blur effect */
 }
