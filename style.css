@@ -637,8 +637,8 @@ a:focus, button:focus, .skill-badge:focus {
         top: 65px; /* Adjust based on header height */
         right: 0;
         width: 250px;
-        background-color: /*var*/ #ff6600;(--color-dark-bg);
-        box-shadow: var(--shadow-premium);
+        background-color: /var/(--color-dark-bg);
+        box-shadow: /*var*/  #ff6600;(--shadow-premium);
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         padding: var(--spacing-md) 0;
