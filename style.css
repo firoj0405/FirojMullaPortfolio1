@@ -132,7 +132,7 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: transparent;
+    background-color: #111; /* DARK */ /*transparent;*/
     transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
     padding: 10px 0;
 }
