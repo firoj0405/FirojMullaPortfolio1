@@ -479,20 +479,19 @@ a:hover {
 
 <!-- ------------------------------------------------------ -->
 
-.seo-image-card img, .certification-card img {
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* Fixed height aesthetic */
-    object-fit: cover;
+.seo-image-card, .certification-card {
+    text-align: center;
+    background-color: white;
+    padding: var(--spacing-md);
     border-radius: var(--border-radius);
-    display: block;
-    margin-bottom: 10px;
+    box-shadow: var(--shadow-subtle);
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.seo-image-card figcaption, .certification-card figcaption {
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--color-text);
+.seo-image-card:hover, .certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
 }
 
 
