@@ -698,8 +698,11 @@ a:focus, button:focus, .skill-badge:focus {
 }
 
 @media (max-width: 768px) {
-  .fa-bars {
-      color: #e6e6e6; /* dark white */
+  .fa-bars,
+  .fa-times,
+  .fa-xmark {
+      color: #e6e6e6 !important; /* dark white */
   }
 }
+
 
