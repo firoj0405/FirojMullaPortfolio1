@@ -1,127 +1,81 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // ------------------------------------------
-    // 1. Smooth Scrolling for Navigation
-    // ------------------------------------------
-    document.querySelectorAll('.nav-links a, .menu-toggle, .cta-button').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Check if it's an internal link
-            if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
+/* ===== 1. Reduce left/right blank space ===== */
+html, body { margin: 0; padding: 0; overflow-x: hidden; }
 
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu after clicking a link
-                    const navbar = document.getElementById('navbar');
-                    if (navbar.classList.contains('active')) {
-                        navbar.classList.remove('active');
-                        document.querySelector('.menu-toggle i').classList.remove('fa-times');
-                        document.querySelector('.menu-toggle i').classList.add('fa-bars');
-                        document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
-                    }
-                }
-            }
-        });
-    });
+.container,
+section > .container,
+.section-container,
+.wrapper {
+  width: 94%;
+  max-width: 1400px;      /* was probably 1000-1200px */
+  margin-inline: auto;
+  padding-inline: 0;      /* remove extra side padding */
+}
 
-    // ------------------------------------------
-    // 2. Fixed Header/Scroll Effect
-    // ------------------------------------------
-    const header = document.getElementById('header');
+section {
+  padding: 60px 0;        /* tighter vertical rhythm */
+}
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+/* Full-width header/footer content */
+#header .container,
+footer .container {
+  max-width: 1400px;
+  width: 94%;
+}
 
-    // ------------------------------------------
-    // 3. Mobile Menu Toggle
-    // ------------------------------------------
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navbar = document.getElementById('navbar');
-    const menuIcon = menuToggle.querySelector('i');
+/* ===== 2. Bigger, clearer images ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-    menuToggle.addEventListener('click', () => {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-        
-        navbar.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-        
-        if (navbar.classList.contains('active')) {
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times'); // Use 'X' icon for close
-        } else {
-            menuIcon.classList.remove('fa-times');
-            menuIcon.classList.add('fa-bars');
-        }
-    });
-    
-    // ------------------------------------------
-    // 4. Lightbox/Modal Functionality
-    // ------------------------------------------
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const closeBtn = document.querySelector('.close-btn');
-    const modalTriggers = document.querySelectorAll('.open-modal, .seo-image-card img, .certification-card img');
-    
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            let imageUrl = '';
-            let altText = 'Full-size project or certification image';
-            
-            // Determine image source:
-            if (trigger.tagName === 'A' && trigger.classList.contains('open-modal')) {
-                // Main project link (download project)
-                imageUrl = trigger.getAttribute('href');
-                altText = trigger.getAttribute('aria-label') || altText;
-            } else if (trigger.tagName === 'IMG') {
-                // SEO image or Certification image
-                imageUrl = trigger.getAttribute('src');
-                altText = trigger.getAttribute('alt') || altText;
-            }
+/* Project / SEO / certification galleries: fewer columns = bigger images */
+.projects-grid,
+.seo-grid,
+.certification-grid,
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 24px;
+}
 
-            if (imageUrl) {
-                lightbox.style.display = 'block';
-                lightbox.setAttribute('aria-hidden', 'false');
-                lightboxImage.setAttribute('src', imageUrl);
-                lightboxImage.setAttribute('alt', altText);
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            }
-        });
-    });
+.seo-image-card img,
+.certification-card img,
+.project-card img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;    /* shows the full image, no cropping */
+  border-radius: 10px;
+  cursor: zoom-in;
+}
 
-    // Close the lightbox when the close button is clicked
-    closeBtn.addEventListener('click', () => {
-        closeLightbox();
-    });
+.seo-image-card,
+.certification-card,
+.project-card {
+  padding: 12px;
+}
 
-    // Close the lightbox when clicking outside the image
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+/* ===== 3. Lightbox: show images as large as possible ===== */
+#lightboxImage {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 
-    // Close the lightbox when the ESC key is pressed
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.style.display === 'block') {
-            closeLightbox();
-        }
-    });
-    
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = 'auto'; // Restore background scrolling
-        lightboxImage.setAttribute('src', ''); // Clear image source
-    }
-});
+/* ===== 4. Responsive ===== */
+@media (max-width: 768px) {
+  .container { width: 92%; }
+  .projects-grid,
+  .seo-grid,
+  .certification-grid,
+  .gallery {
+    grid-template-columns: 1fr;   /* one big image per row on mobile */
+  }
+  section { padding: 40px 0; }
+}
+
+/* Fixes the header covering section titles when scrolling */
+section[id] { scroll-margin-top: 80px; }
