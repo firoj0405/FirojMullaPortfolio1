@@ -708,3 +708,80 @@ a:focus, button:focus, .skill-badge:focus {
 }
 
 
+
+
+/* ===== FULL-WIDTH LAYOUT FIX ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Remove the width cap from every main container */
+:where(header, section, footer, main) > :where(div, nav, ul) {
+  width: 96% !important;
+  max-width: 1920px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Common container class names, in case they set a max-width directly */
+.container, .wrapper, .section-container, .skills-container,
+.content, .inner, .row {
+  width: 96% !important;
+  max-width: 1920px !important;
+  margin-inline: auto !important;
+}
+
+/* Header: keep logo/social icons left, menu right, edge to edge */
+header .container, header nav, .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Skills section: 3 equal cards spanning the full width */
+.skills-grid, .skills-container, .skills-wrapper,
+section#skills > div > div {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  width: 100%;
+}
+
+.skill-card, .skills-grid > div, .skills-container > div {
+  width: auto !important;
+  max-width: none !important;
+  padding: 28px 32px;
+}
+
+/* Bigger images in all body sections */
+section img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 992px) {
+  .skills-grid, .skills-container, .skills-wrapper,
+  section#skills > div > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .skills-grid, .skills-container, .skills-wrapper,
+  section#skills > div > div {
+    grid-template-columns: 1fr;
+  }
+  :where(header, section, footer, main) > :where(div, nav, ul) {
+    width: 94% !important;
+  }
+}
+
