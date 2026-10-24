@@ -785,3 +785,73 @@ section img {
   }
 }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.94);
+}
+.lightbox.open { display: block; }
+
+.lb-toolbar {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(30, 30, 30, 0.85);
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #fff;
+}
+.lb-toolbar button {
+  background: #fff;
+  color: #111;
+  border: 0;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.lb-toolbar button:hover { background: #dbe9ff; }
+.lb-toolbar .close-btn { background: #ff4d4d; color: #fff; }
+#zoomLevel { min-width: 52px; text-align: center; font-size: 14px; }
+
+.lb-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;        /* lets us handle pinch/drag ourselves */
+}
+#lightboxImage {
+  max-width: 96vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform-origin: center center;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+  image-rendering: auto;
+}
+#lightboxImage.dragging { cursor: grabbing; }
+
+/* Hint that body images are clickable */
+section img:not(.no-zoom) { cursor: zoom-in; }
+
+
+
+
+
+
