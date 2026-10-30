@@ -1,78 +1,44 @@
-/* ===== 1. Reduce left/right blank space ===== */
-html, body { margin: 0; padding: 0; overflow-x: hidden; }
+document.addEventListener('DOMContentLoaded', function () {
 
-.container,
-section > .container,
-.section-container,
-.wrapper {
-  width: 94%;
-  max-width: 1400px;      /* was probably 1000-1200px */
-  margin-inline: auto;
-  padding-inline: 0;      /* remove extra side padding */
-}
+  /* ===== 1. Header scroll effect ===== */
+  const header = document.getElementById('header');
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  }
 
-section {
-  padding: 60px 0;        /* tighter vertical rhythm */
-}
+  /* ===== 2. Mobile menu toggle ===== */
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navbar = document.getElementById('navbar');
+  if (menuToggle && navbar) {
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      }
+    });
+    navbar.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        }
+      });
+    });
+  }
 
-/* Full-width header/footer content */
-#header .container,
-footer .container {
-  max-width: 1400px;
-  width: 94%;
-}
+  /* ===== 3. Lightbox with zoom, pan and pinch ===== */
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImage');
+  const stage = document.getElementById('lbStage');
+  const levelLabel = document.getElementById('zoomLevel');
+  if (!lightbox || !img || !stage || !levelLabel) return;
 
-/* ===== 2. Bigger, clearer images ===== */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Project / SEO / certification galleries: fewer columns = bigger images */
-.projects-grid,
-.seo-grid,
-.certification-grid,
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 24px;
-}
-
-.seo-image-card img,
-.certification-card img,
-.project-card img {
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;    /* shows the full image, no cropping */
-  border-radius: 10px;
-  cursor: zoom-in;
-}
-
-.seo-image-card,
-.certification-card,
-.project-card {
-  padding: 12px;
-}
-
-/* ===== 3. Lightbox: show images as large as possible ===== */
-#lightboxImage {
-  max-width: 95vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
-// ------------------------------------------
-// 4. Lightbox with zoom, pan and pinch
-// ------------------------------------------
-const lightbox = document.getElementById('lightbox');
-const img = document.getElementById('lightboxImage');
-const stage = document.getElementById('lbStage');
-const levelLabel = document.getElementById('zoomLevel');
-if (lightbox && img && stage) {
   const MIN = 1, MAX = 8;
   let scale = 1, x = 0, y = 0;
   const pointers = new Map();
@@ -84,7 +50,6 @@ if (lightbox && img && stage) {
   };
   const reset = () => { scale = 1; x = 0; y = 0; apply(); };
 
-  // Zoom keeping the point under (cx, cy) fixed
   const zoomAt = (newScale, cx, cy) => {
     newScale = Math.min(MAX, Math.max(MIN, newScale));
     const r = stage.getBoundingClientRect();
@@ -110,33 +75,33 @@ if (lightbox && img && stage) {
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    lightbox.querySelector('.close-btn')?.focus();
   };
   const close = () => {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     img.removeAttribute('src');
-    lastFocus?.focus?.();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
   };
 
-  // Open on click of any body image (add class "no-zoom" to skip one)
+  // Click on any section image opens the viewer (add class "no-zoom" to skip one)
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('.open-modal, section img:not(.no-zoom)');
+    const t = e.target.closest('.open-modal, section img:not(.no-zoom):not(.profile-img)');
     if (!t || t.closest('#lightbox')) return;
-    let url = t.tagName === 'A' ? t.getAttribute('href')
-            : (t.dataset.full || t.currentSrc || t.src);
+    const url = t.tagName === 'A'
+      ? t.getAttribute('href')
+      : (t.dataset.full || t.currentSrc || t.src);
     if (!url) return;
     if (t.tagName === 'A' && !/\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$/i.test(url)) return;
     e.preventDefault();
     open(url, t.getAttribute('aria-label') || t.alt || 'Full-size image');
   });
 
-  // Toolbar
-  document.getElementById('zoomIn').addEventListener('click', () => zoomCenter(1.4));
-  document.getElementById('zoomOut').addEventListener('click', () => zoomCenter(1 / 1.4));
-  document.getElementById('zoomReset').addEventListener('click', reset);
-  lightbox.querySelector('.close-btn').addEventListener('click', close);
+  // Toolbar buttons
+  document.getElementById('zoomIn')?.addEventListener('click', () => zoomCenter(1.4));
+  document.getElementById('zoomOut')?.addEventListener('click', () => zoomCenter(1 / 1.4));
+  document.getElementById('zoomReset')?.addEventListener('click', reset);
+  lightbox.querySelector('.close-btn')?.addEventListener('click', close);
 
   // Click empty backdrop to close
   stage.addEventListener('click', (e) => { if (e.target === stage) close(); });
@@ -147,7 +112,7 @@ if (lightbox && img && stage) {
     zoomAt(scale * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX, e.clientY);
   }, { passive: false });
 
-  // Double-click / double-tap: toggle 1x <-> 2.5x
+  // Double-click / double-tap toggles 1x <-> 2.5x
   img.addEventListener('dblclick', (e) => {
     scale > 1 ? reset() : zoomAt(2.5, e.clientX, e.clientY);
   });
@@ -195,4 +160,4 @@ if (lightbox && img && stage) {
     else if (e.key === '-') zoomCenter(1 / 1.4);
     else if (e.key === '0') reset();
   });
-}
+});
