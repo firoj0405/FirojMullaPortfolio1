@@ -347,5 +347,61 @@ ul.tools-wrap li i { margin:0 !important; font-size:16px !important; }
         </div>
     </footer>
 <script src="script.js"></script>
+
+<!-- Sticky Bottom Action Bar -->
+<style>
+  body { padding-bottom: 80px; } /* keeps page content from hiding behind the bar */
+
+  .sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .sticky-cta a {
+    flex: 1;                      /* both buttons share the width equally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 8px;
+    border-radius: 10px;
+    font: 600 clamp(13px, 3.5vw, 16px) / 1.2 system-ui, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .sticky-cta .btn-cv { background: #1f2937; }
+  .sticky-cta .btn-wa { background: #25d366; }
+  .sticky-cta a:active { transform: scale(0.97); }
+
+  /* On large screens: centered, compact bar */
+  @media (min-width: 768px) {
+    .sticky-cta { justify-content: center; }
+    .sticky-cta a { flex: 0 1 240px; }
+  }
+</style>
+
+<div class="sticky-cta">
+  <a class="btn-cv" href="/Firoj-CV.pdf" download>⬇ Download CV</a>
+
+  <a class="btn-wa" target="_blank" rel="noopener"
+     href="https://wa.me/91XXXXXXXXXX?text=Hello%20Firoj%2C%20I%20saw%20your%20CV%20and%20I%27m%20interested%20in%20your%20profile.%20Your%20CV%20has%20been%20shortlisted%20for%20the%20position%20of%20%5BJob%20Role%5D%20at%20%5BCompany%20Name%5D.%20Please%20let%20me%20know%20a%20suitable%20time%20to%20connect.">
+    💬 WhatsApp Me
+  </a>
+</div>
+
+
+
+    
 </body>
 </html>
