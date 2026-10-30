@@ -1,163 +1,171 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
+  function init() {
 
-  /* ===== 1. Header scroll effect ===== */
-  const header = document.getElementById('header');
-  if (header) {
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-  }
-
-  /* ===== 2. Mobile menu toggle ===== */
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navbar = document.getElementById('navbar');
-  if (menuToggle && navbar) {
-    menuToggle.addEventListener('click', () => {
-      navbar.classList.toggle('active');
-      const icon = menuToggle.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      }
-    });
-    navbar.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        const icon = menuToggle.querySelector('i');
-        if (icon) {
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        }
-      });
-    });
-  }
-
-  /* ===== 3. Lightbox with zoom, pan and pinch ===== */
-  const lightbox = document.getElementById('lightbox');
-  const img = document.getElementById('lightboxImage');
-  const stage = document.getElementById('lbStage');
-  const levelLabel = document.getElementById('zoomLevel');
-  if (!lightbox || !img || !stage || !levelLabel) return;
-
-  const MIN = 1, MAX = 8;
-  let scale = 1, x = 0, y = 0;
-  const pointers = new Map();
-  let lastDist = 0, dragStart = null, lastFocus = null;
-
-  const apply = () => {
-    img.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-    levelLabel.textContent = Math.round(scale * 100) + '%';
-  };
-  const reset = () => { scale = 1; x = 0; y = 0; apply(); };
-
-  const zoomAt = (newScale, cx, cy) => {
-    newScale = Math.min(MAX, Math.max(MIN, newScale));
-    const r = stage.getBoundingClientRect();
-    const px = cx - (r.left + r.width / 2);
-    const py = cy - (r.top + r.height / 2);
-    const k = newScale / scale;
-    x = px - (px - x) * k;
-    y = py - (py - y) * k;
-    scale = newScale;
-    if (scale === 1) { x = 0; y = 0; }
-    apply();
-  };
-  const zoomCenter = (factor) => {
-    const r = stage.getBoundingClientRect();
-    zoomAt(scale * factor, r.left + r.width / 2, r.top + r.height / 2);
-  };
-
-  const open = (url, alt) => {
-    lastFocus = document.activeElement;
-    reset();
-    img.src = url;
-    img.alt = alt;
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-  const close = () => {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    img.removeAttribute('src');
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
-  };
-
-  // Click on any section image opens the viewer (add class "no-zoom" to skip one)
-  document.addEventListener('click', (e) => {
-    const t = e.target.closest('.open-modal, section img:not(.no-zoom):not(.profile-img)');
-    if (!t || t.closest('#lightbox')) return;
-    const url = t.tagName === 'A'
-      ? t.getAttribute('href')
-      : (t.dataset.full || t.currentSrc || t.src);
-    if (!url) return;
-    if (t.tagName === 'A' && !/\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$/i.test(url)) return;
-    e.preventDefault();
-    open(url, t.getAttribute('aria-label') || t.alt || 'Full-size image');
-  });
-
-  // Toolbar buttons
-  document.getElementById('zoomIn')?.addEventListener('click', () => zoomCenter(1.4));
-  document.getElementById('zoomOut')?.addEventListener('click', () => zoomCenter(1 / 1.4));
-  document.getElementById('zoomReset')?.addEventListener('click', reset);
-  lightbox.querySelector('.close-btn')?.addEventListener('click', close);
-
-  // Click empty backdrop to close
-  stage.addEventListener('click', (e) => { if (e.target === stage) close(); });
-
-  // Mouse wheel / trackpad zoom
-  stage.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    zoomAt(scale * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX, e.clientY);
-  }, { passive: false });
-
-  // Double-click / double-tap toggles 1x <-> 2.5x
-  img.addEventListener('dblclick', (e) => {
-    scale > 1 ? reset() : zoomAt(2.5, e.clientX, e.clientY);
-  });
-
-  // Drag to pan + two-finger pinch
-  img.addEventListener('pointerdown', (e) => {
-    img.setPointerCapture(e.pointerId);
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.size === 1) {
-      dragStart = { px: e.clientX, py: e.clientY, x, y };
-      img.classList.add('dragging');
-    } else if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      lastDist = Math.hypot(a.x - b.x, a.y - b.y);
+    /* ===== Header scroll + mobile menu ===== */
+    var header = document.getElementById('header');
+    if (header) {
+      var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 50); };
+      window.addEventListener('scroll', onScroll); onScroll();
     }
-  });
-  img.addEventListener('pointermove', (e) => {
-    if (!pointers.has(e.pointerId)) return;
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    if (pointers.size === 2) {
-      const [a, b] = [...pointers.values()];
-      const dist = Math.hypot(a.x - b.x, a.y - b.y);
-      if (lastDist) zoomAt(scale * (dist / lastDist), (a.x + b.x) / 2, (a.y + b.y) / 2);
-      lastDist = dist;
-    } else if (pointers.size === 1 && dragStart && scale > 1) {
-      x = dragStart.x + (e.clientX - dragStart.px);
-      y = dragStart.y + (e.clientY - dragStart.py);
+    var menuToggle = document.querySelector('.menu-toggle');
+    var navbar = document.getElementById('navbar');
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener('click', function () {
+        navbar.classList.toggle('active');
+        var ic = menuToggle.querySelector('i');
+        if (ic) { ic.classList.toggle('fa-bars'); ic.classList.toggle('fa-times'); }
+      });
+      navbar.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          navbar.classList.remove('active');
+          var ic = menuToggle.querySelector('i');
+          if (ic) { ic.classList.add('fa-bars'); ic.classList.remove('fa-times'); }
+        });
+      });
+    }
+
+    /* ===== Image viewer (self-contained) ===== */
+    if (document.getElementById('pvBox')) return;
+
+    var style = document.createElement('style');
+    style.textContent =
+      '#pvBox{display:none;position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.95)}' +
+      '#pvBox.pv-open{display:block}' +
+      '#pvBar{position:absolute;top:12px;right:12px;z-index:3;display:flex;align-items:center;gap:8px;background:rgba(30,30,30,.9);padding:8px 12px;border-radius:999px;color:#fff;font:14px sans-serif}' +
+      '#pvBar button{background:#fff;color:#111;border:0;min-width:36px;height:36px;padding:0 12px;border-radius:999px;font-size:20px;line-height:1;cursor:pointer}' +
+      '#pvBar button:hover{background:#dbe9ff}' +
+      '#pvBar #pvClose{background:#ff4d4d;color:#fff}' +
+      '#pvLevel{min-width:52px;text-align:center}' +
+      '#pvStage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none}' +
+      '#pvImg{max-width:96vw;max-height:90vh;width:auto;height:auto;object-fit:contain;transform-origin:center center;cursor:grab;user-select:none;-webkit-user-drag:none;touch-action:none;border-radius:0}' +
+      '#pvImg.pv-drag{cursor:grabbing}' +
+      'img:not(.no-zoom):not(.profile-img){cursor:zoom-in}';
+    document.head.appendChild(style);
+
+    var box = document.createElement('div');
+    box.id = 'pvBox';
+    box.innerHTML =
+      '<div id="pvBar">' +
+        '<button id="pvOut" aria-label="Zoom out">&minus;</button>' +
+        '<span id="pvLevel">100%</span>' +
+        '<button id="pvIn" aria-label="Zoom in">+</button>' +
+        '<button id="pvReset">Reset</button>' +
+        '<button id="pvClose" aria-label="Close">&times;</button>' +
+      '</div>' +
+      '<div id="pvStage"><img id="pvImg" alt=""></div>';
+    document.body.appendChild(box);
+
+    var img = document.getElementById('pvImg');
+    var stage = document.getElementById('pvStage');
+    var label = document.getElementById('pvLevel');
+    var MIN = 1, MAX = 8, scale = 1, x = 0, y = 0;
+    var pointers = new Map(), lastDist = 0, dragStart = null;
+
+    function apply() {
+      img.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + scale + ')';
+      label.textContent = Math.round(scale * 100) + '%';
+    }
+    function reset() { scale = 1; x = 0; y = 0; apply(); }
+    function zoomAt(ns, cx, cy) {
+      ns = Math.min(MAX, Math.max(MIN, ns));
+      var r = stage.getBoundingClientRect();
+      var px = cx - (r.left + r.width / 2), py = cy - (r.top + r.height / 2);
+      var k = ns / scale;
+      x = px - (px - x) * k; y = py - (py - y) * k; scale = ns;
+      if (scale === 1) { x = 0; y = 0; }
       apply();
     }
-  });
-  const endPointer = (e) => {
-    pointers.delete(e.pointerId);
-    lastDist = 0;
-    dragStart = null;
-    img.classList.remove('dragging');
-  };
-  img.addEventListener('pointerup', endPointer);
-  img.addEventListener('pointercancel', endPointer);
+    function zoomCenter(f) {
+      var r = stage.getBoundingClientRect();
+      zoomAt(scale * f, r.left + r.width / 2, r.top + r.height / 2);
+    }
+    function openViewer(url, alt) {
+      reset();
+      img.src = url; img.alt = alt || 'Full-size image';
+      box.classList.add('pv-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeViewer() {
+      box.classList.remove('pv-open');
+      document.body.style.overflow = '';
+      img.removeAttribute('src');
+    }
 
-  // Keyboard: Esc close, + / - zoom, 0 reset
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    else if (e.key === '+' || e.key === '=') zoomCenter(1.4);
-    else if (e.key === '-') zoomCenter(1 / 1.4);
-    else if (e.key === '0') reset();
-  });
-});
+    /* Click any image on the page (capture phase, so nothing blocks it) */
+    document.addEventListener('click', function (e) {
+      if (box.contains(e.target)) return;
+      var t = e.target;
+      var pic = t.tagName === 'IMG' ? t : null;
+      if (!pic) {
+        var card = t.closest('.seo-image-card, .certification-card, .project-image-preview, figure');
+        if (card) pic = card.querySelector('img');
+      }
+      if (!pic) return;
+      if (pic.closest('#header, header, nav') || pic.classList.contains('no-zoom') || pic.classList.contains('profile-img')) return;
+      if (pic.naturalWidth && pic.naturalWidth < 60) return;
+      var url = pic.dataset.full || pic.currentSrc || pic.src;
+      if (!url) return;
+      e.preventDefault();
+      e.stopPropagation();
+      openViewer(url, pic.alt);
+    }, true);
+
+    document.getElementById('pvIn').addEventListener('click', function () { zoomCenter(1.4); });
+    document.getElementById('pvOut').addEventListener('click', function () { zoomCenter(1 / 1.4); });
+    document.getElementById('pvReset').addEventListener('click', reset);
+    document.getElementById('pvClose').addEventListener('click', closeViewer);
+    stage.addEventListener('click', function (e) { if (e.target === stage) closeViewer(); });
+
+    stage.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      zoomAt(scale * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX, e.clientY);
+    }, { passive: false });
+
+    img.addEventListener('dblclick', function (e) {
+      if (scale > 1) reset(); else zoomAt(2.5, e.clientX, e.clientY);
+    });
+
+    img.addEventListener('pointerdown', function (e) {
+      img.setPointerCapture(e.pointerId);
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1) {
+        dragStart = { px: e.clientX, py: e.clientY, x: x, y: y };
+        img.classList.add('pv-drag');
+      } else if (pointers.size === 2) {
+        var p = Array.from(pointers.values());
+        lastDist = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      }
+    });
+    img.addEventListener('pointermove', function (e) {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 2) {
+        var p = Array.from(pointers.values());
+        var d = Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+        if (lastDist) zoomAt(scale * (d / lastDist), (p[0].x + p[1].x) / 2, (p[0].y + p[1].y) / 2);
+        lastDist = d;
+      } else if (pointers.size === 1 && dragStart && scale > 1) {
+        x = dragStart.x + (e.clientX - dragStart.px);
+        y = dragStart.y + (e.clientY - dragStart.py);
+        apply();
+      }
+    });
+    function endPointer(e) {
+      pointers.delete(e.pointerId); lastDist = 0; dragStart = null;
+      img.classList.remove('pv-drag');
+    }
+    img.addEventListener('pointerup', endPointer);
+    img.addEventListener('pointercancel', endPointer);
+
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('pv-open')) return;
+      if (e.key === 'Escape') closeViewer();
+      else if (e.key === '+' || e.key === '=') zoomCenter(1.4);
+      else if (e.key === '-') zoomCenter(1 / 1.4);
+      else if (e.key === '0') reset();
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
