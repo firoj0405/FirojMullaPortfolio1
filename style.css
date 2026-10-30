@@ -853,5 +853,25 @@ section img:not(.no-zoom) { cursor: zoom-in; }
 
 
 
+/* ===== FIXES ===== */
+.lightbox { padding: 0; overflow: hidden; }
+
+.lb-toolbar .close-btn {
+  position: static;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.seo-image-card img,
+.certification-card img,
+.project-image-preview img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+section img.profile-img { cursor: default; }
+
+
 
 
