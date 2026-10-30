@@ -24,7 +24,7 @@
       });
     }
 
-    /* ===== Image viewer (self-contained) ===== */
+    /* ===== Image viewer ===== */
     if (document.getElementById('pvBox')) return;
 
     var style = document.createElement('style');
@@ -60,6 +60,12 @@
     var label = document.getElementById('pvLevel');
     var MIN = 1, MAX = 8, scale = 1, x = 0, y = 0;
     var pointers = new Map(), lastDist = 0, dragStart = null;
+    var viewerOpen = false;
+
+    // Page refresh ke baad purani viewer-state history me na bache
+    if (history.state && history.state.pvOpen) {
+      history.replaceState(null, '');
+    }
 
     function apply() {
       img.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + scale + ')';
@@ -79,19 +85,36 @@
       var r = stage.getBoundingClientRect();
       zoomAt(scale * f, r.left + r.width / 2, r.top + r.height / 2);
     }
-    function openViewer(url, alt) {
-      reset();
-      img.src = url; img.alt = alt || 'Full-size image';
-      box.classList.add('pv-open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeViewer() {
+
+    /* --- open / close with Back-button support --- */
+    function hideViewer() {
       box.classList.remove('pv-open');
       document.body.style.overflow = '';
       img.removeAttribute('src');
+      viewerOpen = false;
     }
+    function openViewer(url, alt) {
+      reset();
+      img.src = url;
+      img.alt = alt || 'Full-size image';
+      box.classList.add('pv-open');
+      document.body.style.overflow = 'hidden';
+      if (!viewerOpen) history.pushState({ pvOpen: true }, '');
+      viewerOpen = true;
+    }
+    function closeViewer() {
+      if (!viewerOpen) return;
+      if (history.state && history.state.pvOpen) {
+        history.back();          // popstate niche hideViewer() chalayega
+      } else {
+        hideViewer();
+      }
+    }
+    window.addEventListener('popstate', function () {
+      if (viewerOpen) hideViewer();
+    });
 
-    /* Click any image on the page (capture phase, so nothing blocks it) */
+    /* Click any image on the page */
     document.addEventListener('click', function (e) {
       if (box.contains(e.target)) return;
       var t = e.target;
